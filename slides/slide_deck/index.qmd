@@ -20,10 +20,4 @@ format:
 highlight-style: "dracula"
 ---
 
-## Agenda
-
-- Introduction
-- Frequentist vs. Bayesian statistics
-- Bayesian inference in `R`
-- Practice
-- Next steps for your projects
+to be released.
