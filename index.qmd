@@ -1,5 +1,3 @@
-
-
 ---
 about:
   template: jolla
@@ -25,4 +23,17 @@ about:
 
 # Welcome!
 
-Welcome to the website of the workshop *Bayesian Statistics* by [Marvin Schmitt](https://www.marvinschmitt.com). This website will be fleshed out with material and information soon.
+This workshop teaches the basics of Bayesian statistics. We start with an overview of the basic principles and concepts. After a solid understanding of the theory, participants will have the opportunity to apply their knowledge through hands-on experience with R. This workshop provides a comprehensive and interactive learning environment that offers both theoretical insights and practical skills. We use the `brms` interface to the probabilistic programming language Stan for Bayesian inference.
+
+## Prior knowledge
+
+- Basic training in (frequentist) statistics: e.g. from psychology studies
+- Basic knowledge of R: installing packages, reading and manipulating data, regression analysis with `lm()`
+
+## Language
+
+Workshop language is German, materials are written in English.
+
+## Instructor
+
+The workshop is instructed by [Marvin Schmitt](https://www.marvinschmitt.com).
