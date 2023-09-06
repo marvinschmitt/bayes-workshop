@@ -32,14 +32,14 @@
     "href": "index.html",
     "title": "Bayesian Statistics Workshop",
     "section": "",
-    "text": "Twitter\n  \n  \n    \n     Github\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Email\n  \n\n\n\n\nWelcome!\nWelcome to the website of the workshop Bayesian Statistics by Marvin Schmitt. This website will be fleshed out with material and information soon."
+    "text": "Twitter\n  \n  \n    \n     Github\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Email"
   },
   {
     "objectID": "slides/index.html",
     "href": "slides/index.html",
     "title": "Slides",
     "section": "",
-    "text": "This website contains the slides of the workshop for your reference. You can check back later to go through the material again.\n\nIf you prefer to view the presentation in a standalone browser tab, you can do that here."
+    "text": "This website contains the slides of the workshop for your reference. You can check back later to go through the material again.\n\n\n\nIf you prefer to view the presentation in a standalone browser tab, you can do that here."
   },
   {
     "objectID": "exercises/index.html",
@@ -47,5 +47,33 @@
     "title": "Bayesian Statistics Workshop",
     "section": "",
     "text": "To be released, stay tuned."
+  },
+  {
+    "objectID": "index.html#prior-knowledge",
+    "href": "index.html#prior-knowledge",
+    "title": "Bayesian Statistics Workshop",
+    "section": "Prior knowledge",
+    "text": "Prior knowledge\n\nBasic training in (frequentist) statistics: e.g. from psychology studies\nBasic knowledge of R: installing packages, reading and manipulating data, regression analysis with lm()"
+  },
+  {
+    "objectID": "index.html#language",
+    "href": "index.html#language",
+    "title": "Bayesian Statistics Workshop",
+    "section": "Language",
+    "text": "Language\nWorkshop language is German, materials are written in English."
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "Bayesian Statistics Workshop",
+    "section": "Instructor",
+    "text": "Instructor\nThe workshop is instructed by Marvin Schmitt."
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#agenda",
+    "href": "slides/slide_deck/index.html#agenda",
+    "title": "Bayesian Statistics",
+    "section": "Agenda",
+    "text": "Agenda\n\nIntroduction\nFrequentist vs. Bayesian statistics\nBayesian inference in R\nPractice\nNext steps for your projects\n\n\n\n\nBayesian statistics workshop | Marvin Schmitt"
   }
 ]
