@@ -1,0 +1,51 @@
+[
+  {
+    "objectID": "setup/index.html",
+    "href": "setup/index.html",
+    "title": "Setup Instructions",
+    "section": "",
+    "text": "Hello! If you can read this, odds are that you have successfully installed the R and RStudio programming environment for the course. Please follow the instructions in this document to make sure that everything works as expected. First and foremost, please download the .qmd file so that you can execute the installation steps. Open the downloaded file index.qmd in RStudio.\n\n\n\n\n\n\n Download the .qmd file for the setup\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nDo not hit Render yet, the installation commands might cause errors. Instead, execute the code in the cells by navigating your cursor to a line and hitting Ctrl+Enter (Cmd+Enter on Mac).\nOnce you have installed all packages, you can go ahead and hit Render once to get a pretty output file.\n\n\n\n\nLet’s see if the basic R functionality works as expected.\n\nx = 5\ny = 2\nz = x + y\nprint(z)\n\n[1] 7\n\nw = sqrt(z)\nprint(w)\n\n[1] 2.645751\n\n\nAwesome, let’s install some key packages for working in R!"
+  },
+  {
+    "objectID": "setup/index.html#install-brms-and-rstan",
+    "href": "setup/index.html#install-brms-and-rstan",
+    "title": "Setup Instructions",
+    "section": "3.1 Install brms and rstan",
+    "text": "3.1 Install brms and rstan\n\nif (!require(\"brms\")) {\n  install.packages(\"brms\")\n}\n\nif (!require(\"rstan\")) {\n  install.packages(\"rstan\", \n                   repos = \"https://cloud.r-project.org/\", \n                   dependencies = TRUE)\n}\n\nif (!require(\"bayesplot\")){\n  install.packages(\"bayesplot\")\n}\n\nThe following explains how to install a C++ compiler which is required for brms and Stan"
+  },
+  {
+    "objectID": "setup/index.html#c-compiler-on-windows",
+    "href": "setup/index.html#c-compiler-on-windows",
+    "title": "Setup Instructions",
+    "section": "3.2 C++ compiler on Windows",
+    "text": "3.2 C++ compiler on Windows\n\nlibrary(rstan)\nexample(stan_model, package = \"rstan\", run.dontrun = TRUE)\n\nRStudio should ask if you want to install Rtools, in which case you should say Yes and click through the installer. After that, the brms model at the end of this script should run."
+  },
+  {
+    "objectID": "setup/index.html#c-compiler-on-mac",
+    "href": "setup/index.html#c-compiler-on-mac",
+    "title": "Setup Instructions",
+    "section": "3.3 C++ compiler on Mac",
+    "text": "3.3 C++ compiler on Mac\n\nlibrary(rstan)\nexample(stan_model, package = \"rstan\", run.dontrun = TRUE)\n\nRStudio will likely ask if you want to install CommandLineTooals in which case you should say Yes and click through the installer. After that, the brms model at the end of this script should run\nAlternatively, you can install the required tools directly from the command line. Run the following code,\n\nsystem(\"xcode-select --install\")\n\nor open the Terminal (Finder > Applications > Terminal) and run:\nxcode-select --install\nMake sure that a C++ compiler is installed and can be called within R via\n\nsystem(\"clang++ -v\")\n\nIf no warning occurs and a few lines of system code are printed out, the compiler should work correctly\nIf your Mac has an Intel Chip, install gfortran v8.2: https://github.com/fxcoudert/gfortran-for-macOS/releases/tag/8.2\nIf your Mac has an Apple M1/M2 chip, install gfortran v11 withthe .pkg file listed under Assets at the bottom of this page: https://github.com/fxcoudert/gfortran-for-macOS/releases/tag/11-arm-alpha2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Bayesian Statistics Workshop",
+    "section": "",
+    "text": "Twitter\n  \n  \n    \n     Github\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Email\n  \n\n\n\n\nWelcome!\nWelcome to the website of the workshop Bayesian Statistics by Marvin Schmitt. This website will be fleshed out with material and information soon."
+  },
+  {
+    "objectID": "slides/index.html",
+    "href": "slides/index.html",
+    "title": "Slides",
+    "section": "",
+    "text": "This website contains the slides of the workshop for your reference. You can check back later to go through the material again.\n\nIf you prefer to view the presentation in a standalone browser tab, you can do that here."
+  },
+  {
+    "objectID": "exercises/index.html",
+    "href": "exercises/index.html",
+    "title": "Bayesian Statistics Workshop",
+    "section": "",
+    "text": "To be released, stay tuned."
+  }
+]

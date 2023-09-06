@@ -13,7 +13,7 @@ project:
 
 website:
   title: "Bayesian Statistics Workshop"
-  description: "Introductory workshop for Bayesian statistics, targeted at students with knowledge in statistics and R."
+  description: "Introductory workshop for Bayesian statistics, targeted at students with knowledge in statistics and R"
 
   repo-url: "https://github.com/marvinschmitt/bayes-workshop"
   repo-branch: main
