@@ -1,0 +1,28 @@
+
+
+---
+about:
+  template: jolla
+  id: about-block
+  image: "assets/about_img.png"
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/MarvinSchmittML
+    - icon: github
+      text: Github
+      href: https://github.com/marvinschmitt
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/marvin-schmitt-a85b321a2/
+    - icon: envelope
+      text: Email
+      href: "mailto:mail.marvinschmitt@gmail.com"  
+---
+
+::: {#about-block}
+:::
+
+# Welcome!
+
+Welcome to the website of the workshop *Bayesian Statistics* by [Marvin Schmitt](https://www.marvinschmitt.com). This website will be fleshed out with material and information soon.

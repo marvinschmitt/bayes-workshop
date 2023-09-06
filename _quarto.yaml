@@ -1,0 +1,44 @@
+project:
+  type: website
+  output-dir: docs
+
+  preview:
+    port: 11111
+    browser: true
+    watch-inputs: true
+    navigate: true
+
+  resources:
+    - "/assets/**"
+
+website:
+  title: "Bayesian Statistics Workshop"
+  description: "Introductory workshop for Bayesian statistics, targeted at students with knowledge in statistics and R."
+
+  repo-url: "https://github.com/marvinschmitt/bayes-workshop"
+  repo-branch: main
+
+  search: false
+
+  navbar:
+    left:
+      - text: Setup
+        href: setup/index.qmd
+      - text: Slides
+        href: slides/index.qmd
+      - text: Exercises
+        href: exercises/index.qmd
+
+  page-footer:
+    center: |
+      <span class="faux-block">(c) 2023 [Marvin Schmitt](https://www.marvinschmitt.com)</span>
+
+
+execute:
+  freeze: true
+
+format:
+  html:
+    theme:
+      - pulse
+      - styles.scss

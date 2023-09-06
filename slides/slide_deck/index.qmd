@@ -1,0 +1,28 @@
+---
+title: "Bayesian Statistics"
+subtitle: "Introduction with examples in `R`"
+author: "Marvin Schmitt"
+format:
+  revealjs:
+    theme: simple
+    footer: "Bayesian statistics workshop | Marvin Schmitt"
+    logo: /assets/ms_icon.png
+    
+    slide-number: c
+    
+    transition: fade
+    transition-speed: fast
+    
+    width: 1600
+    height: 900
+    echo: true
+    
+highlight-style: "dracula"
+---
+
+
+To be released.
+
+
+
+

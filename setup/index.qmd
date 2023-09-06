@@ -1,0 +1,177 @@
+---
+title: "Setup Instructions"
+subtitle: "Workshop: Bayesian statistics"
+author: "Marvin Schmitt"
+format:
+  html:
+    number-sections: true
+---
+
+# Welcome
+
+Hello! If you can read this, odds are that you have successfully installed the `R` and `RStudio` programming environment for the course. Please follow the instructions in this document to make sure that everything works as expected. First and foremost, please download the `.qmd` file so that you can execute the installation steps.
+
+::: {.callout appearance="minimal"}
+<i class="bi bi-download"></i> [Download the `.qmd` file for the setup](index.qmd){download="bayes_setup.qmd"}
+:::
+
+Open the downloaded file `bayes_setup.qmd` in `RStudio` and execute the code while you read through the instructions.
+
+::: {.callout-important}
+Do not hit `Render` yet, the installation commands might cause errors. Instead, execute the code in the cells by navigating your cursor to a line and hitting `Ctrl+Enter` (`Cmd+Enter` on Mac).
+
+Once you have installed all packages, you can go ahead and hit `Render` once to get a pretty output file.
+:::
+
+## Testing base `R`
+
+Let's see if the basic `R` functionality works as expected.
+
+```{r}
+x = 5
+y = 2
+z = x + y
+print(z)
+
+w = sqrt(z)
+print(w)
+```
+
+Awesome, let's install some key packages for working in `R`!
+
+# Installation: Data manipulation and visualization
+
+We install `tidyverse`, which is a great collection of data manipulation and visualization tools. The installation might require your input (like typing `Yes`) in the Terminal window at the bottom of `Rstudio`.
+
+```{r}
+if (!require("tidyverse")) {
+  install.packages("tidyverse")
+}
+```
+
+Upon successful installation, we test whether everything works as expected.
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+
+df = mtcars %>% 
+  select(mpg, wt, cyl)
+
+ggplot(data=df, aes(x=wt, y=mpg)) +
+  geom_point() +
+  geom_smooth(method="lm") +
+  geom_smooth(col="firebrick")+
+  labs(title="Example plot from the mtcars data set", 
+       x="Weight",
+       y="Miles per Gallon")
+
+```
+
+# Installation: Bayesian statistics packages
+
+Large parts of this installation helper are taken from [Paul Bürkner](https://paul-buerkner.github.io/) with permission, thank you!
+
+## Install `brms` and `rstan`
+
+```{r}
+#| output: false
+if (!require("brms")) {
+  install.packages("brms")
+}
+
+if (!require("rstan")) {
+  install.packages("rstan", 
+                   repos = "https://cloud.r-project.org/", 
+                   dependencies = TRUE)
+}
+
+if (!require("bayesplot")){
+  install.packages("bayesplot")
+}
+```
+
+The following explains how to install a C++ compiler which is required for brms and Stan
+
+## C++ compiler on Windows
+
+```{r}
+#| output: false
+
+library(rstan)
+example(stan_model, package = "rstan", run.dontrun = TRUE)
+```
+
+RStudio should ask if you want to install Rtools, in which case you should say Yes and click through the installer. After that, the `brms` model at the end of this script should run.
+
+
+## C++ compiler on Mac
+
+```{r}
+#| output: false
+
+library(rstan)
+example(stan_model, package = "rstan", run.dontrun = TRUE)
+```
+
+RStudio will likely ask if you want to install CommandLineTooals in which case you should say Yes and click through the installer. After that, the brms model at the end of this script should run
+
+Alternatively, you can install the required tools directly from the command line. Run the following code, 
+
+```{r}
+system("xcode-select --install")
+```
+
+or open the Terminal (`Finder > Applications > Terminal`) and run: 
+
+```
+xcode-select --install
+```
+
+
+Make sure that a C++ compiler is installed and can be called within R via
+
+```{r}
+system("clang++ -v")
+```
+
+If no warning occurs and a few lines of system code are printed out, the compiler should work correctly
+
+If your Mac has an Intel Chip, install gfortran v8.2: https://github.com/fxcoudert/gfortran-for-macOS/releases/tag/8.2
+
+If your Mac has an Apple M1/M2 chip, install gfortran v11 withthe `.pkg file` listed under Assets at the bottom of this page: https://github.com/fxcoudert/gfortran-for-macOS/releases/tag/11-arm-alpha2
+
+
+
+# Test your setup
+
+This is an example model to make sure that the setup works.
+
+```{r}
+#| output: false
+
+library(brms)
+fit <- brm(count ~ zAge + zBase * Trt + (1|patient),
+           data = epilepsy, 
+           family = poisson())
+# C++ compilation takes up to a minute
+```
+
+```{r}
+summary(fit)
+```
+
+Congratulations, you're all set!
+
+
+# Issues
+
+If you have any issues that you can't fix:
+
+1. Read through this great tutorial: https://learnb4ss.github.io/learnB4SS/articles/install-brms.html
+2. Contact me ([mail.marvinschmitt@gmail.com](mailto:mail.marvinschmitt@gmail.com)) with specific information on:
+  * What does not work?
+  * What exactly did you do so far?
+  * Your operating system (Windows, Mac, version etc)
+  * The exact error message, if there is any.
+  * Screenshots of errors, if applicable.
