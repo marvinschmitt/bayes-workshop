@@ -1,0 +1,40 @@
+---
+title: "Exercise 1"
+---
+
+
+## Data
+
+This exercise needs no data. You can flip a coin to create your own data set.
+
+{{< include /exercises/_exercise_1_tasks.qmd >}}
+
+## Hints
+
+### Bayesian update from the example
+
+```{r}
+N = 20
+y = 14
+
+theta = seq(0, 1, by=0.01)
+prior = dbeta(theta, 3, 2)
+likelihood = dbinom(y, N, theta)
+joint = prior * likelihood
+
+posterior = joint / sum(joint)
+
+print(cbind(theta, prior, posterior)[1:10, ])
+```
+
+### Visualizing prior and posterior
+
+```{r}
+prior = prior / sum(prior)
+plot(theta, posterior, type="l", col="orange", lwd=5, xlim=c(0,1), xlab="theta", ylab="", axes=FALSE)
+lines(theta, prior, col="darkblue", lwd=5)
+legend("topleft", legend=c("Prior", "Posterior"),
+       col=c("darkblue", "orange"), lty=1, cex=1.7, lwd=10)
+axis(1, pos=0)
+```
+

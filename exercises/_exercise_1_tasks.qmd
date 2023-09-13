@@ -1,0 +1,16 @@
+## The Bayesian coin flip
+
+Implement Bayesian updating for a coin flip experiment that tries to find the true probability $\theta$ of heads.
+
+#. What is a suitable likelihood $p(y\,|\,\theta)$?
+#. What is the parameter $\theta$ of that likelihood?
+#. How can you encode your prior belief about $\theta$ in a distribution?
+    * Possible values of $\theta$?
+    * Areas of high mass?
+    * Use `R` to sample and visualize some distributions.
+#. How does the result change if you increase the number of observations `N`?
+#. **Optional:** 
+    * Compute the Maximum Likelihood Estimate (MLE)
+    * Compare the MLE with mode of the posterior distribution (aka. MAP)
+    * When do MLE and MAP differ?
+    * Can you make MLE and MAP equal?

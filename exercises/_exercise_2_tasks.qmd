@@ -1,0 +1,7 @@
+## Modeling icecream sales at different temperatures
+
+#. Model the `icecream.csv` data with a Bayesian regression model
+#. Choose a likelihood function
+#. Define a prior distribution
+#. Visualize the posterior draws as a density plot
+#. Visualize the modeled expectation $\mu$ (i.e., regression line with uncertainty)

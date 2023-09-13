@@ -1,0 +1,8 @@
+## Comparing ice cream models
+
+#. Plot the posterior predictive distribution for the icecream model
+#. Define two more ice cream models, for example with ...
+    * ... another prior distribution
+    * ... another likelihood
+#. Compare the models via LOO-CV
+#. Interpret the results. What are your conclusions?

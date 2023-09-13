@@ -89,6 +89,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<link href="../assets/ms_icon.png" rel="icon" type="image/png">
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -183,7 +184,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="welcome" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Welcome</h1>
-<p>Hello! If you can read this, odds are that you have successfully installed the <code>R</code> and <code>RStudio</code> programming environment for the course. Please follow the instructions in this document to make sure that everything works as expected. First and foremost, please download the <code>.qmd</code> file so that you can execute the installation steps. Open the downloaded file <code>index.qmd</code> in <code>RStudio</code>.</p>
+<p>Hello! If you can read this, odds are that you have successfully installed the <code>R</code> and <code>RStudio</code> programming environment for the course. Please follow the instructions in this document to make sure that everything works as expected. First and foremost, please download the <code>.qmd</code> file so that you can execute the installation steps.</p>
 <div class="callout callout callout-style-simple no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -194,6 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
+<p>Open the downloaded file <code>bayes_setup.qmd</code> in <code>RStudio</code> and execute the code while you read through the instructions.</p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -242,7 +244,7 @@ Important
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.2     ✔ readr     2.1.4
 ✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ ggplot2   3.4.3     ✔ tibble    3.2.1
 ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
 ✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
@@ -350,15 +352,15 @@ Formula: count ~ zAge + zBase * Trt + (1 | patient)
 Group-Level Effects: 
 ~patient (Number of levels: 59) 
               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)     0.59      0.07     0.47     0.74 1.01      981     1625
+sd(Intercept)     0.59      0.07     0.46     0.75 1.00      865     1675
 
 Population-Level Effects: 
            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept      1.77      0.12     1.53     1.99 1.00      618     1219
-zAge           0.09      0.09    -0.08     0.25 1.01      594     1266
-zBase          0.70      0.12     0.46     0.94 1.00      689     1437
-Trt1          -0.27      0.16    -0.59     0.06 1.00      660     1260
-zBase:Trt1     0.06      0.17    -0.27     0.38 1.00      771     1341
+Intercept      1.78      0.12     1.55     2.00 1.01      853     1389
+zAge           0.09      0.09    -0.08     0.26 1.01      723     1330
+zBase          0.71      0.12     0.47     0.94 1.01      795     1232
+Trt1          -0.27      0.17    -0.60     0.06 1.00      804     1564
+zBase:Trt1     0.05      0.16    -0.27     0.37 1.01      900     1268
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential

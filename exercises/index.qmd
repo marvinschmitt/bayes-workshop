@@ -1,1 +1,10 @@
-To be released, stay tuned.
+You find links to the notebooks (web preview) and `.qmd` source files of all exercises here.
+
+
+|#|Title|Link to notebook|Download|
+|-|-----|----------------|---|
+|1|Bayesian coin flip|[Link](exercise_1.qmd)|<i class="bi bi-download"></i> [Download](exercise_1.qmd){download="exercise_1.qmd"}|
+|2|Modeling icecream sales at different temperatures|[Link](exercise_2.qmd)|<i class="bi bi-download"></i> [Download](exercise_2.qmd){download="exercise_2.qmd"}|
+|3|Comparing ice cream models|[Link](exercise_3.qmd)|<i class="bi bi-download"></i> [Download](exercise_3.qmd){download="exercise_3.qmd"}|
+|4|Multilevel model for icecream sales|[Link](exercise_4.qmd)|<i class="bi bi-download"></i> [Download](exercise_4.qmd){download="exercise_4.qmd"}|
+|5|IMDB movie ratings: Effect size and ROPE|[Link](exercise_5.qmd)|<i class="bi bi-download"></i> [Download](exercise_5.qmd){download="exercise_5.qmd"}|

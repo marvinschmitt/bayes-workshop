@@ -18,6 +18,9 @@ website:
   repo-url: "https://github.com/marvinschmitt/bayes-workshop"
   repo-branch: main
 
+  site-url: https://marvinschmitt.github.io/bayes-workshop
+  favicon: assets/ms_icon.png
+
   search: false
 
   navbar:

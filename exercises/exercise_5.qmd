@@ -1,0 +1,62 @@
+---
+title: "Exercise 5"
+---
+
+
+## Data
+
+Download the data set `movies.csv` and read it into your `R` environment:
+
+<a class="btn btn-outline-primary" href="/data/movies.csv" download role="button" style="padding: 5px 5px;">Data set download</a>
+
+{{< include /exercises/_exercise_5_tasks.qmd >}}
+
+## Hints
+
+Use the definition 
+$$
+d = \dfrac{\mu_1 - \mu_2}{\frac{1}{2}\sqrt{\sigma_1^2 + \sigma_2^2}}
+$$
+
+:::{.callout-warning}
+
+## Attention: Variance $\leftrightarrow$ SD
+
+Remember to square the `sigma` draws for the computation of Cohen's $d$!
+:::
+
+### Modeling means and standard deviations
+
+```{r}
+#| eval: False
+
+lm_means_sd = brm(
+  bf(rating ~ 0 + genre, sigma ~ 0 + genre),
+  data = movies,
+  file = "models/movies_lm_means_sd.rds"
+)
+```
+
+### Computing arbitrary posterior quantities
+
+```{r}
+#| eval: False
+
+post_samples = posterior_samples(lm_means_sd) %>% 
+  mutate_at(vars(contains("sigma")), funs(exp))
+
+post_samples_diff = post_samples %>% 
+  mutate(mean_diff = b_genreAction - b_genreComedy)
+```
+
+### Accessing the standard deviation estimates
+
+```{r}
+#| eval: False
+
+post_samples$b_sigma_genreAction
+post_samples$b_sigma_genreComedy
+
+```
+
+

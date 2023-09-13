@@ -1,0 +1,9 @@
+## Multilevel model for icecream sales
+
+#. Define more Bayesian models, and save each model in a separate variable for later.
+    #. `icecream_mlm_2`: Change the likelihood to a `Poisson` distribution
+    #. `icecream_mlm_3`: Allow for varying slopes at each location but a fixed intercept
+    #. `icecream_mlm_4`: Allow for varying slopes and varying intercept at each location
+#. Compare the models via LOO-CV
+    * You need `loo()` and `loo_compare()`
+#. Interpret the results. What are your conclusions?

@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+<link href="../../assets/ms_icon.png" rel="icon" type="image/png">
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.2.313">
 
   <meta name="author" content="Marvin Schmitt">
@@ -28,6 +31,70 @@
       margin: 0 0.8em 0.2em -1.6em;
       vertical-align: middle;
     }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2; background-color: #282a36; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #ff79c6; } /* Annotation */
+    code span.at { color: #ff79c6; } /* Attribute */
+    code span.bn { color: #bd93f9; } /* BaseN */
+    code span.bu { color: #8be9fd; } /* BuiltIn */
+    code span.cf { color: #ff79c6; } /* ControlFlow */
+    code span.ch { color: #f1fa8c; } /* Char */
+    code span.cn { color: #bd93f9; font-weight: bold; } /* Constant */
+    code span.co { color: #6272a4; } /* Comment */
+    code span.cv { color: #8be9fd; } /* CommentVar */
+    code span.do { color: #ffb86c; } /* Documentation */
+    code span.dt { color: #8be9fd; font-style: italic; } /* DataType */
+    code span.dv { color: #bd93f9; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #8be9fd; } /* Extension */
+    code span.fl { color: #bd93f9; } /* Float */
+    code span.fu { color: #50fa7b; } /* Function */
+    code span.im { color: #ff79c6; } /* Import */
+    code span.in { color: #f1fa8c; } /* Information */
+    code span.kw { color: #ff79c6; } /* Keyword */
+    code span.op { color: #f8f8f2; } /* Operator */
+    code span.ot { color: #50fa7b; } /* Other */
+    code span.pp { color: #ff79c6; } /* Preprocessor */
+    code span.re { color: #8be9fd; } /* RegionMarker */
+    code span.sc { color: #ff79c6; } /* SpecialChar */
+    code span.ss { color: #f1fa8c; } /* SpecialString */
+    code span.st { color: #f1fa8c; } /* String */
+    code span.va { color: #8be9fd; } /* Variable */
+    code span.vs { color: #f1fa8c; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css" id="theme">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -323,9 +390,9 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center">
+<section id="title-slide" data-background-color="#FFFFFF" class="quarto-title-block center">
   <h1 class="title">Bayesian Statistics</h1>
-  <p class="subtitle">Introduction with examples in <code>R</code></p>
+  <p class="subtitle">Introduction with examples in <code>R</code> and <code>brms</code></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -336,15 +403,1156 @@ Marvin Schmitt
 </div>
 
 </section>
-<section class="slide level2">
+<section>
+<section id="introduction" class="title-slide slide level1 center">
+<h1>Introduction</h1>
 
-<p>to be released.</p>
+</section>
+<section id="whoami" class="slide level2">
+<h2><code>&gt; whoami</code></h2>
+<div class="cell">
+
+</div>
+<pre><code>[1] marvin at location 0xFF35AFEE5801, display_name: "Marvin Schmitt"
 
 
-<img src="../../assets/ms_icon.png" class="slide-logo r-stretch"><div class="footer footer-default">
-<p>Bayesian statistics workshop | Marvin Schmitt</p>
+&gt; marvin$education
+
+[1] Now: PhD candidate, Cluster of Excellence SimTech, University of Stuttgart
+[2] MSc in Data &amp; Computer Science, Heidelberg University
+[3] MSc in Psychology, Heidelberg University
+
+
+&gt; marvin$research
+
+[1] Bayesian inference, deep learning, uncertainty quantification
+[4] simulation-based inference, trustworthy ML</code></pre>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><br><br><br></p>
+<pre><code>&gt; marvin$print_image()</code></pre>
+</div><div class="column" style="width:20%;">
+<p><img data-src="../../assets/ms_portrait.png"></p>
+</div>
+</div>
+</section></section>
+<section>
+<section id="whoareyou" class="title-slide slide level1 center">
+<h1><code>&gt; whoareyou</code></h1>
+
+</section>
+<section id="download-the-course-materials" class="slide level2">
+<h2>Download the course materials</h2>
+<div style="text-align: center;margin:100px; font-size: 1.3em">
+<p><a href="https://marvinschmitt.github.io/bayes-workshop">marvinschmitt.github.io/bayes-workshop</a></p>
 </div>
 </section>
+<section id="inverse-problems" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Inverse problems</h2>
+
+<img data-src="slide_assets/inverse_problems.png" class="r-stretch"></section>
+<section id="bayesian-inference" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Bayesian inference</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="slide_assets/inverse_problems.png"></p>
+</div><div class="column" style="width:50%;">
+<div style="fontsize: 1.5em;border: 1px solid #000;text-align: center; margin-bottom:30px">
+<p><span class="math display">\[
+p(\theta\,|\,y) = \dfrac{p(y\,|\,\theta)\,p(\theta)}{p(y)} = \dfrac{p(y\,|\,\theta)\,p(\theta)}{\int p(y\,|\,\theta)\,p(\theta)\mathrm{d}\theta}
+\]</span></p>
+</div>
+<h3 id="important-terms">Important terms</h3>
+<ul>
+<li><strong>Prior</strong> <span class="math inline">\(p(\theta)\)</span></li>
+<li><strong>Likelihood</strong> <span class="math inline">\(p(y\,|\,\theta)\)</span></li>
+<li><strong>Marginal likelihood</strong> <span class="math inline">\(p(y)\)</span></li>
+<li><strong>Posterior</strong> <span class="math inline">\(p(\theta\,|\,y)\)</span></li>
+</ul>
+</div>
+</div>
+<p>For discrete parameters <span class="math inline">\(\theta\)</span>, the integral turns into a sum:</p>
+<p><span class="math display">\[
+p(\theta\,|\,y) = \dfrac{p(y\,|\,\theta)\,p(\theta)}{p(y)} = \dfrac{p(y\,|\,\theta)\,p(\theta)}{\sum p(y\,|\,\theta)\,p(\theta)}
+\]</span></p>
+</section>
+<section id="example-eye-color-setting" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Example: Eye color, setting</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Reasoning about eye color</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Among the world population, a proportion <span class="math inline">\(\theta\)</span> of humans have brown eyes</li>
+<li>Each human either has at least one brown eye (<span class="math inline">\(y_i=1\)</span>) or not (<span class="math inline">\(y_i=0\)</span>)</li>
+<li>We have data on <span class="math inline">\(N=20\)</span> humans and observe <span class="math inline">\(y=11\)</span> with brown eyes</li>
+<li><strong>Simplification:</strong> Suppose that <span class="math inline">\(\theta\)</span> can only take on the values <span class="math inline">\(.20, .50, .80\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p>We assume a Binomial likelihood: <span class="math inline">\(p(y\,|\,\theta, N) = \binom{n}{y}\,\theta^y\,(1-\theta)^{N-y}\)</span></p>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="example-eye-color-prior" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Example: Eye color, prior</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Reasoning about eye color</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Among the world population, a proportion <span class="math inline">\(\theta\)</span> of humans have brown eyes</li>
+<li>Each human either has at least one brown eye (<span class="math inline">\(y_i=1\)</span>) or not (<span class="math inline">\(y_i=0\)</span>)</li>
+<li>We have data on <span class="math inline">\(N=20\)</span> humans and observe <span class="math inline">\(y=11\)</span> with brown eyes</li>
+<li><strong>Simplification:</strong> Suppose that <span class="math inline">\(\theta\)</span> can only take on the values <span class="math inline">\(.20, .50, .80\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p>Suppose we have the following prior belief about the rate <span class="math inline">\(\theta\)</span> of brown-eyed people:</p>
+<ul>
+<li><span class="math inline">\(p(\theta = 0.20) = 0.10\)</span></li>
+<li><span class="math inline">\(p(\theta = 0.50) = 0.40\)</span></li>
+<li><span class="math inline">\(p(\theta = 0.80) = 0.50\)</span></li>
+</ul>
+</section>
+<section id="example-eye-color-posterior-i" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Example: Eye color, posterior (I)</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Reasoning about eye color</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Among the world population, a proportion <span class="math inline">\(\theta\)</span> of humans have brown eyes</li>
+<li>Each human either has at least one brown eye (<span class="math inline">\(y_i=1\)</span>) or not (<span class="math inline">\(y_i=0\)</span>)</li>
+<li>We have data on <span class="math inline">\(N=20\)</span> humans and observe <span class="math inline">\(y=11\)</span> with brown eyes</li>
+<li><strong>Simplification:</strong> Suppose that <span class="math inline">\(\theta\)</span> can only take on the values <span class="math inline">\(.20, .50, .80\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p>We compute the joint distribution <span class="math inline">\(p(\theta, y)\)</span> as <span class="math inline">\(p(\theta)\cdot p(y\,|\,\theta)\)</span></p>
+<table>
+<colgroup>
+<col style="width: 52%">
+<col style="width: 17%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Prior <span class="math inline">\(p(\theta)\)</span></th>
+<th>Likelihood <span class="math inline">\(p(y\,|\,\theta)\)</span></th>
+<th>Joint <span class="math inline">\(p(\theta, y)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p(\theta=0.20)=0.10\)</span></td>
+<td><span class="math inline">\(p(y = 11\,|\,\theta=0.20, N=20)=0.0005\)</span></td>
+<td><span class="math inline">\(0.00005\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(p(\theta=0.50)=0.40\)</span></td>
+<td><span class="math inline">\(p(y = 11\,|\,\theta=0.50, N=20)=0.1602\)</span></td>
+<td><span class="math inline">\(0.06408\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(p(\theta=0.80)=0.50\)</span></td>
+<td><span class="math inline">\(p(y = 11\,|\,\theta=0.80, N=20)=0.0074\)</span></td>
+<td><span class="math inline">\(0.00370\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Marginal likelihood <span class="math inline">\(p(y) = \sum_{\theta}p(\theta, y) = 0.00005 + 0.06408 + 0.00370 = 0.06783\)</span></p>
+</section>
+<section id="example-eye-color-posterior-ii" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Example: Eye color, posterior (II)</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Reasoning about eye color</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Among the world population, a proportion <span class="math inline">\(\theta\)</span> of humans have brown eyes</li>
+<li>Each human either has at least one brown eye (<span class="math inline">\(y_i=1\)</span>) or not (<span class="math inline">\(y_i=0\)</span>)</li>
+<li>We have data on <span class="math inline">\(N=20\)</span> humans and observe <span class="math inline">\(y=11\)</span> with brown eyes</li>
+<li><strong>Simplification:</strong> Suppose that <span class="math inline">\(\theta\)</span> can only take on the values <span class="math inline">\(.20, .50, .80\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p>Marginal likelihood <span class="math inline">\(p(y) = \sum_{\theta}p(\theta, y) = 0.00005 + 0.06408 + 0.00370 = 0.06783\)</span></p>
+<p>We compute the posterior as <span class="math inline">\(p(\theta\,|\,y)=\dfrac{p(y)\,p(y\,|\,\theta)}{p(y)}\)</span></p>
+<table>
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter <span class="math inline">\(\theta\)</span></th>
+<th>Joint <span class="math inline">\(p(\theta, y)\)</span></th>
+<th>Posterior <span class="math inline">\(p(\theta\,|\,y)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\theta=0.20\)</span></td>
+<td><span class="math inline">\(p(\theta=0.20, y=11) = 0.00005\)</span></td>
+<td><span class="math inline">\(p(\theta=0.20\,|\,y=11) = 0.0007\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\theta=0.50\)</span></td>
+<td><span class="math inline">\(p(\theta=0.50, y=11) = 0.06408\)</span></td>
+<td><span class="math inline">\(p(\theta=0.50\,|\,y=11) = 0.9447\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\theta=0.80\)</span></td>
+<td><span class="math inline">\(p(\theta=0.80, y=11) = 0.00370\)</span></td>
+<td><span class="math inline">\(p(\theta=0.80\,|\,y=11) = 0.0545\)</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="example-eye-color-r-code" class="slide level2">
+<h2>Example: Eye color, <code>R</code> code</h2>
+<!-- add decimal notation -->
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>N <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>y <span class="ot">=</span> <span class="dv">11</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>theta <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.20</span>, <span class="fl">0.50</span>, <span class="fl">0.80</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>prior <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.10</span>, <span class="fl">0.40</span>, <span class="fl">0.50</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>likelihood <span class="ot">=</span> <span class="fu">dbinom</span>(y, N, theta)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>joint <span class="ot">=</span> prior <span class="sc">*</span> likelihood</span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a>posterior <span class="ot">=</span> joint <span class="sc">/</span> <span class="fu">sum</span>(joint)</span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="fu">print</span>(<span class="fu">cbind</span>(theta, prior, likelihood, posterior))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     theta prior   likelihood    posterior
+[1,]   0.2   0.1 0.0004616849 0.0006808377
+[2,]   0.5   0.4 0.1601791382 0.9448521445
+[3,]   0.8   0.5 0.0073869589 0.0544670178</code></pre>
+</div>
+</div>
+</section>
+<section id="example-eye-color-fine-grained-theta" class="slide level2">
+<h2>Example: Eye color, fine-grained <span class="math inline">\(\theta\)</span></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>N <span class="ot">=</span> <span class="dv">20</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>y <span class="ot">=</span> <span class="dv">11</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a>theta <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by=</span><span class="fl">0.01</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a>prior <span class="ot">=</span> <span class="fu">dbeta</span>(theta, <span class="dv">3</span>, <span class="dv">2</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>likelihood <span class="ot">=</span> <span class="fu">dbinom</span>(y, N, theta)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>joint <span class="ot">=</span> prior <span class="sc">*</span> likelihood</span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a>posterior <span class="ot">=</span> joint <span class="sc">/</span> <span class="fu">sum</span>(joint)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<!--
+## Joint distribution
+
+The joint distribution $p(y, \theta)$ can be visualized for 1-dimensional data $y$ and parameters $\theta$:
+
+
+::: {.cell layout-align="center"}
+
+:::
+
+
+-->
+<img data-src="index_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="exercise" class="slide level2">
+<h2>Exercise</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Bayesian coin flip</strong></p>
+</div>
+<div class="callout-content">
+<p>Implement Bayesian updating for a coin flip experiment that tries to find the true probability <span class="math inline">\(\theta\)</span> of heads.</p>
+<ol>
+<li>What is a suitable likelihood <span class="math inline">\(p(y\,|\,\theta)\)</span>?</li>
+<li>What is the parameter <span class="math inline">\(\theta\)</span> of that likelihood?</li>
+<li>How can you encode your prior belief about <span class="math inline">\(\theta\)</span> in a distribution?
+<ul>
+<li>Possible values of <span class="math inline">\(\theta\)</span>?</li>
+<li>Areas of high mass?</li>
+<li>Use <code>R</code> to sample and visualize some distributions.</li>
+</ul></li>
+<li>How does the result change if you increase the number of observations <code>N</code>?</li>
+<li><strong>Optional:</strong>
+<ul>
+<li>Compute the Maximum Likelihood Estimate (MLE)</li>
+<li>Compare the MLE with mode of the posterior distribution (aka. MAP)</li>
+<li>When do MLE and MAP differ?</li>
+<li>Can you make MLE and MAP equal?</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="linear-regression-modeling" class="title-slide slide level1 center">
+<h1>Linear regression modeling</h1>
+
+</section>
+<section id="linear-regression-models-basics" class="slide level2">
+<h2>Linear regression models: basics</h2>
+<p><span class="math inline">\(y = \underbrace{a + b_1x_1 + \ldots + b_Kx_K}_{\text{mean}\ \mu} + \varepsilon\quad\text{with}\;\varepsilon\sim\mathcal{N}(0, \sigma)\)</span></p>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Components of the linear model</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Data <span class="math inline">\(y\)</span></li>
+<li>Parameters: <span class="math inline">\(\theta = (a, b_1, \ldots, b_K, \sigma)\)</span>
+<ul>
+<li>Intercept <span class="math inline">\(a\)</span></li>
+<li>Regression weights <span class="math inline">\(b_1,\ldots,b_K\)</span></li>
+<li>Error <span class="math inline">\(\sigma\)</span></li>
+</ul></li>
+<li>Posterior distribution: <span class="math inline">\(p(a, b_1, \ldots, b_K, \sigma\,|\,y)\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="sampling-from-the-posterior-mcmc" class="slide level2">
+<h2>Sampling from the posterior: MCMC</h2>
+<p>Analytic models are desirable, but the real world is continuous and more complex. Computing the marginal likelihood <span class="math inline">\(p(y)=\int p(y,\theta)\mathrm{d}\theta\)</span> is usually infeasible.</p>
+<p><strong>Solution:</strong> Markov-Chain Monte Carlo (MCMC), for our purpose treat it as:</p>
+<ul>
+<li>Define the prior <span class="math inline">\(p(\theta)\)</span> and likelihood <span class="math inline">\(p(y\,|\,\theta)\)</span></li>
+<li>Run MCMC</li>
+<li>???</li>
+<li>Profit: get samples from the posterior <span class="math inline">\(p(\theta\,|\,y)\)</span></li>
+</ul>
+</section>
+<section id="the-brms-package" class="slide level2">
+<h2>The <code>brms</code> package</h2>
+<div class="columns">
+<div class="column" style="width:80%;">
+<p><code>brms</code> is an <code>R</code> interface to the probabilistic programming language <code>Stan</code> for Bayesian inference. It is designed to be accessible and usable by people who would otherwise use packages like <code>lme4</code>.</p>
+</div><div class="column" style="width:15%;">
+<p><img data-src="slide_assets/brms.png" style="width:100.0%"></p>
+</div>
+</div>
+<h3 id="why-use-brms">Why use <code>brms</code>?</h3>
+<ul>
+<li>Generated <code>Stan</code> code can be accessed</li>
+<li>Very flexible: MLM, hurdle models, distributional regression, …</li>
+<li>Actively maintained</li>
+<li>Formula syntax based on <code>lme4</code></li>
+<li>Integration to post-processing and visualization libraries like <code>bayesplot</code></li>
+</ul>
+</section>
+<section id="live-footage-right-now" class="slide level2">
+<h2>Live footage right now</h2>
+
+<img data-src="slide_assets/pepe_silvia.jpg" class="r-stretch"></section>
+<section id="fitting-a-brms-model" class="slide level2">
+<h2>Fitting a <code>brms</code> model</h2>
+<p>The <code>brm()</code> function is the core entry point into <code>brms</code> to sample from the posterior distribution:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>lm_base <span class="ot">=</span> <span class="fu">brm</span>(</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="at">formula =</span> y <span class="sc">~</span> x,</span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="at">family =</span> <span class="fu">gaussian</span>(),</span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="at">data =</span> df,</span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="at">iter =</span> <span class="dv">4000</span>,</span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="at">chains =</span> <span class="dv">4</span>,</span>
+<span id="cb6-7"><a href="#cb6-7"></a>  <span class="at">file =</span> <span class="st">"models/lm_base.rds"</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualize-mcmc-chains" class="slide level2">
+<h2>Visualize MCMC chains</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">mcmc_plot</span>(lm_base, <span class="at">type =</span> <span class="st">"trace"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="visualize-the-posterior-draws" class="slide level2">
+<h2>Visualize the posterior draws</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">mcmc_plot</span>(lm_base, <span class="at">type =</span> <span class="st">"dens"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="side-by-side-mcmc-chains-and-posterior-draws" class="slide level2">
+<h2>Side-by-side: MCMC chains and posterior draws</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">mcmc_plot</span>(lm_base, <span class="at">type =</span> <span class="st">"trace"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">mcmc_plot</span>(lm_base, <span class="at">type =</span> <span class="st">"dens"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-none no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>The density plots show the <em>stationary distributions</em> of the Markov chains.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-posterior-is-a-multidimensional-distribution" class="slide level2">
+<h2>The posterior is a multidimensional distribution</h2>
+<p><span class="math display">\[
+p(\theta\,|\,y) = p(a, b, \sigma\,|\,y)
+\]</span></p>
+<p>Inspecting the posterior draws <span class="math inline">\((a, b)\)</span> shows a pattern:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">mcmc_pairs</span>(lm_base, <span class="at">pars=</span><span class="fu">c</span>(<span class="st">"b_Intercept"</span>, <span class="st">"b_x"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="model-summary" class="slide level2">
+<h2>Model summary</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">summary</span>(lm_base)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: y ~ x 
+   Data: df (Number of observations: 50) 
+  Draws: 4 chains, each with iter = 4000; warmup = 2000; thin = 1;
+         total post-warmup draws = 8000
+
+Population-Level Effects: 
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept    13.98      2.30     9.56    18.44 1.00     7761     5773
+x            -1.38      0.91    -3.16     0.39 1.00     7715     5659
+
+Family Specific Parameters: 
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     5.88      0.60     4.86     7.21 1.00     6751     5261
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+</section>
+<section id="visualize-modeled-expectation" class="slide level2">
+<h2>Visualize modeled expectation</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>ce <span class="ot">&lt;-</span> <span class="fu">conditional_effects</span>(lm_base, <span class="at">method =</span> <span class="st">"pp_expect"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">plot</span>(ce, <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch quarto-figure-center"><p>The expectation is the mean <span class="math inline">\(\mu\)</span> in the linear model (no noise <span class="math inline">\(\varepsilon\)</span>):</p>
+<p><span class="math display">\[y = \underbrace{a + b_1x_1 + \ldots + b_Kx_K}_{\text{mean}\ \mu} + \varepsilon\quad\text{with}\;\varepsilon\sim\mathcal{N}(0, \sigma)\]</span></p>
+</section>
+<section id="defining-a-prior-in-brms" class="slide level2">
+<h2>Defining a prior in <code>brms</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>priors <span class="ot">=</span> <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="dv">0</span>, <span class="dv">100</span>), <span class="at">class =</span> <span class="st">"Intercept"</span>) <span class="sc">+</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>         <span class="fu">prior</span>(<span class="fu">normal</span>(<span class="dv">0</span>, <span class="dv">50</span>), <span class="at">class =</span> <span class="st">"b"</span>, <span class="at">coef =</span> <span class="st">"x"</span>) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>         <span class="fu">prior</span>(<span class="fu">cauchy</span>(<span class="dv">0</span>, <span class="dv">50</span>), <span class="at">class =</span> <span class="st">"sigma"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h3 id="features-of-brms-priors">Features of <code>brms</code> priors</h3>
+<ul>
+<li>Priors can be combined with the <code>+</code> operator</li>
+<li>The <code>class</code> argument defines the type of parameter the <code>coef</code> argument further defines the target parameter
+<ul>
+<li><code>class= 'b'</code> and <code>coef='x'</code> refers to the regression weight for the variable <code>x</code></li>
+</ul></li>
+<li>The distribution is easy to define with many available options (see the <a href="https://mc-stan.org/">Stan reference</a> for all available distributions)</li>
+</ul>
+</section>
+<section id="passing-the-prior-to-the-brms-model" class="slide level2">
+<h2>Passing the prior to the <code>brms</code> model</h2>
+<p>We use the <code>prior</code> argument to set the custom prior:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>lm_prior <span class="ot">=</span> <span class="fu">brm</span>(y <span class="sc">~</span> x, </span>
+<span id="cb16-2"><a href="#cb16-2"></a>              <span class="at">data =</span> df, </span>
+<span id="cb16-3"><a href="#cb16-3"></a>              <span class="at">prior =</span> priors,</span>
+<span id="cb16-4"><a href="#cb16-4"></a>              <span class="at">file =</span> <span class="st">"models/lm_prior.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exercise-1" class="slide level2">
+<h2>Exercise</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Modeling icecream sales at different temperatures</strong></p>
+</div>
+<div class="callout-content">
+<ol>
+<li>Model the <code>icecream.csv</code> data with a Bayesian regression model</li>
+<li>Choose a likelihood function</li>
+<li>Define a prior distribution</li>
+<li>Visualize the posterior draws as a density plot</li>
+<li>Visualize the modeled expectation <span class="math inline">\(\mu\)</span> (i.e., regression line with uncertainty)</li>
+</ol>
+</div>
+</div>
+</div>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="posterior-predictive-distribution-theory" class="slide level2">
+<h2>Posterior predictive distribution: Theory</h2>
+<p>Distribution of model-implied data <span class="math inline">\(\tilde{y}\)</span> conditional on the existing data <span class="math inline">\(y\)</span>:</p>
+<p><span class="math display">\[
+p(\tilde{y}\,|\,y) = \int p(\tilde{y}\,|\,y,\theta)\,p(\theta\,|\,y)\mathrm{d}\theta
+\]</span></p>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>The posterior predictive distribution lives on the data domain but incorporates the uncertainty from the Bayesian update!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="posterior-predictive-distribution-practice" class="slide level2">
+<h2>Posterior predictive distribution: Practice</h2>
+<p>Imagine the posterior predictive distribution as a multi-step sampling process:</p>
+<ul>
+<li>Sample <span class="math inline">\(\hat{\theta}^{(s)}\)</span> from the posterior distribution</li>
+<li>Plug the sample <span class="math inline">\(\hat{\theta}^{(s)}\)</span> into the likelihood</li>
+<li>Result: one draw from the posterior predictive distribution</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="pseudocode">Pseudocode</h3>
+<pre><code>for s in [1...S]:
+  theta_sample = posterior_samples[s]
+  y_hat = likelihood_function(theta_sample)</code></pre>
+</div><div class="column" style="width:50%;">
+<h3 id="for-an-imaginary-gaussian-model">For an imaginary Gaussian model</h3>
+<pre><code>for s in [1...S]:
+  mu_sample = posterior_samples[s, "mu"]
+  sigma_sample = posterior_samples[s, "sigma"]
+  y_hat = rnorm(N, mu_sample, sigma_sample)</code></pre>
+</div>
+</div>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Intuitive phrasing</strong></p>
+</div>
+<div class="callout-content">
+<p>posterior predictive = mean prediction + noise</p>
+</div>
+</div>
+</div>
+</section>
+<section id="posterior-predictive-distribution-expectations-i" class="slide level2">
+<h2>Posterior predictive distribution: Expectations I</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>ce <span class="ot">&lt;-</span> <span class="fu">conditional_effects</span>(lm_prior, <span class="at">method =</span> <span class="st">"pp_expect"</span>, <span class="at">spaghetti =</span> <span class="cn">TRUE</span>, <span class="at">ndraws=</span><span class="dv">50</span>)</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="fu">plot</span>(ce, <span class="at">points =</span> <span class="cn">TRUE</span>, <span class="at">spaghetti_args =</span> <span class="fu">list</span>(<span class="at">alpha=</span><span class="fl">1.0</span>, <span class="at">colour=</span><span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="posterior-predictive-distribution-expectations-ii" class="slide level2">
+<h2>Posterior predictive distribution: Expectations II</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>ce <span class="ot">&lt;-</span> <span class="fu">conditional_effects</span>(lm_prior, <span class="at">method =</span> <span class="st">"pp_expect"</span>)</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">plot</span>(ce, <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="posterior-predictive-distribution-data-domain" class="slide level2">
+<h2>Posterior predictive distribution: Data domain</h2>
+<div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>posterior_draws <span class="ot">=</span> <span class="fu">posterior_samples</span>(lm_prior)</span>
+<span id="cb21-2"><a href="#cb21-2"></a></span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>){</span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">plot</span>(df<span class="sc">$</span>x, df<span class="sc">$</span>y, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">cex=</span><span class="fl">1.5</span>, <span class="at">col=</span><span class="st">"gray"</span>, <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>))</span>
+<span id="cb21-5"><a href="#cb21-5"></a>  mu <span class="ot">=</span> posterior_draws[i, <span class="st">"b_Intercept"</span>] <span class="sc">+</span> posterior_draws[i, <span class="st">"b_x"</span>] <span class="sc">*</span> df<span class="sc">$</span>x</span>
+<span id="cb21-6"><a href="#cb21-6"></a>  <span class="fu">lines</span>(df<span class="sc">$</span>x, mu, <span class="at">col=</span><span class="st">"blue"</span>, <span class="at">lwd=</span><span class="dv">4</span>)</span>
+<span id="cb21-7"><a href="#cb21-7"></a>  </span>
+<span id="cb21-8"><a href="#cb21-8"></a>  sigma <span class="ot">=</span> posterior_draws[i, <span class="st">"sigma"</span>]</span>
+<span id="cb21-9"><a href="#cb21-9"></a>  y_sim <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">50</span>, <span class="at">mean=</span>mu, <span class="at">sd =</span> sigma)</span>
+<span id="cb21-10"><a href="#cb21-10"></a>  <span class="fu">points</span>(df<span class="sc">$</span>x, y_sim, <span class="at">col=</span><span class="st">"orange"</span>, <span class="at">pch=</span><span class="dv">16</span>, <span class="at">cex=</span><span class="fl">1.5</span>) </span>
+<span id="cb21-11"><a href="#cb21-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell column-screen-inset-shaded quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-20-2.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-20-3.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="comparing-models-with-predictive-fit-loo-cv" class="slide level2">
+<h2>Comparing models with predictive fit: LOO-CV</h2>
+<p><strong>Leave-One-Out Cross-Validation (LOO-CV)</strong> computes the expected fit on unseen data:</p>
+<ol type="1">
+<li>Split the data <span class="math inline">\(y\)</span> into test set (one observation) and training set (rest of <span class="math inline">\(y\)</span>)</li>
+<li>Fit posterior on training set</li>
+<li>Compute predictive fit on test observation</li>
+<li>Repeat 1–3 on many different splits</li>
+</ol>
+</section>
+<section id="exercise-2" class="slide level2">
+<h2>Exercise</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Comparing ice cream models</strong></p>
+</div>
+<div class="callout-content">
+<ol>
+<li>Plot the posterior predictive distribution for the icecream model</li>
+<li>Define two more ice cream models, for example with …
+<ul>
+<li>… another prior distribution</li>
+<li>… another likelihood</li>
+</ul></li>
+<li>Compare the models via LOO-CV</li>
+<li>Interpret the results. What are your conclusions?</li>
+</ol>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="bayesian-multilevel-modeling" class="title-slide slide level1 center">
+<h1>Bayesian multilevel modeling</h1>
+
+</section>
+<section id="ice-cream-sales-at-different-locations-simple-model" class="slide level2">
+<h2>Ice cream sales at different locations: simple model</h2>
+<div class="cell" data-layout-align="center">
+
+</div>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-22-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="simple-linear-model-in-brms" class="slide level2">
+<h2>Simple linear model in <code>brms</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>icecream_lm <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb22-2"><a href="#cb22-2"></a>  units <span class="sc">~</span> temp, </span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="at">data =</span> icecream2,</span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="at">file =</span> <span class="st">"models/icecream_lm.rds"</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="model-summary-1" class="slide level2">
+<h2>Model summary</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">summary</span>(icecream_lm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: units ~ temp 
+   Data: icecream2 (Number of observations: 72) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Population-Level Effects: 
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept  -132.56    130.02  -392.02   115.60 1.00     3673     2773
+temp         25.54      6.78    12.43    39.02 1.00     3680     2631
+
+Family Specific Parameters: 
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma   216.89     18.16   184.84   256.15 1.00     3649     2729
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+</section>
+<section id="visualize-mean-predictions" class="slide level2">
+<h2>Visualize mean predictions</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>ce <span class="ot">&lt;-</span> <span class="fu">conditional_effects</span>(icecream_lm, <span class="at">method =</span> <span class="st">"pp_expect"</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">plot</span>(ce, <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="visualize-data-predictions" class="slide level2">
+<h2>Visualize data predictions</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>ce <span class="ot">&lt;-</span> <span class="fu">conditional_effects</span>(icecream_lm, <span class="at">method =</span> <span class="st">"pp"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">plot</span>(ce, <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-26-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="respecting-the-multilevel-structure" class="slide level2">
+<h2>Respecting the multilevel structure</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-27-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="multilevel-model-in-brms" class="slide level2">
+<h2>Multilevel model in <code>brms</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>icecream_mlm_1 <span class="ot">=</span> <span class="fu">brm</span>(</span>
+<span id="cb27-2"><a href="#cb27-2"></a>  units <span class="sc">~</span> temp <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> location),</span>
+<span id="cb27-3"><a href="#cb27-3"></a>  <span class="at">data =</span> icecream2,</span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="at">file =</span> <span class="st">"models/icecream_mlm_1.rds"</span>,</span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.99</span>)</span>
+<span id="cb27-6"><a href="#cb27-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The <code>adapt_delta</code> parameter</strong></p>
+</div>
+<div class="callout-content">
+<p>Increasing <code>adapt_delta</code> slows down the sampler but creates fewer divergent transitions.</p>
+<p><strong>Rule of thumb:</strong> increase <code>adapt_delta</code> if you get warnings about divergent transitions.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="model-summary-2" class="slide level2">
+<h2>Model summary</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">summary</span>(icecream_mlm_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: units ~ temp + (1 | location) 
+   Data: icecream2 (Number of observations: 72) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Group-Level Effects: 
+~location (Number of levels: 6) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)   238.18     76.96   134.96   430.75 1.00      770     1261
+
+Population-Level Effects: 
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept  -131.03     95.63  -323.54    54.29 1.00      918     1027
+temp         25.45      2.13    21.25    29.56 1.00     2403     2150
+
+Family Specific Parameters: 
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma    69.35      6.29    58.43    82.24 1.00     2057     2228
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+</section>
+<section id="visualize-the-posterior" class="slide level2">
+<h2>Visualize the posterior</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">mcmc_plot</span>(icecream_mlm_1, <span class="at">pars =</span> <span class="st">"r_location"</span>, <span class="at">type =</span> <span class="st">"dens"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-30-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="visualize-mean-predictions-1" class="slide level2">
+<h2>Visualize mean predictions</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>conds <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">location =</span> <span class="fu">unique</span>(icecream2<span class="sc">$</span>location))</span>
+<span id="cb31-2"><a href="#cb31-2"></a>me <span class="ot">&lt;-</span> <span class="fu">conditional_effects</span>(icecream_mlm_1, <span class="st">"temp"</span>, <span class="at">conditions =</span> conds,</span>
+<span id="cb31-3"><a href="#cb31-3"></a>                          <span class="at">re_formula =</span> <span class="cn">NULL</span>, <span class="at">method =</span> <span class="st">"pp_expect"</span>)</span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="fu">plot</span>(me, <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-31-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="visualize-data-predictions-1" class="slide level2">
+<h2>Visualize data predictions</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>conds <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">location =</span> <span class="fu">unique</span>(icecream2<span class="sc">$</span>location))</span>
+<span id="cb32-2"><a href="#cb32-2"></a>me <span class="ot">&lt;-</span> <span class="fu">conditional_effects</span>(icecream_mlm_1, <span class="st">"temp"</span>, <span class="at">conditions =</span> conds,</span>
+<span id="cb32-3"><a href="#cb32-3"></a>                          <span class="at">re_formula =</span> <span class="cn">NULL</span>, <span class="at">method =</span> <span class="st">"pp"</span>)</span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="fu">plot</span>(me, <span class="at">points =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="index_files/figure-revealjs/unnamed-chunk-32-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="comparing-the-simple-and-multilevel-model" class="slide level2">
+<h2>Comparing the simple and multilevel model</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>loo_lm <span class="ot">=</span> <span class="fu">loo</span>(icecream_lm)</span>
+<span id="cb33-2"><a href="#cb33-2"></a>loo_mlm_1 <span class="ot">=</span> <span class="fu">loo</span>(icecream_mlm_1)</span>
+<span id="cb33-3"><a href="#cb33-3"></a></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="fu">loo_compare</span>(loo_lm, loo_mlm_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               elpd_diff se_diff
+icecream_mlm_1   0.0       0.0  
+icecream_lm    -79.4       6.7  </code></pre>
+</div>
+</div>
+</section>
+<section id="exercise-3" class="slide level2">
+<h2>Exercise</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Multilevel model for icecream sales</strong></p>
+</div>
+<div class="callout-content">
+<ol>
+<li>Define more Bayesian models, and save each model in a separate variable for later.
+<ol>
+<li><code>icecream_mlm_2</code>: Change the likelihood to a <code>Poisson</code> distribution</li>
+<li><code>icecream_mlm_3</code>: Allow for varying slopes at each location but a fixed intercept</li>
+<li><code>icecream_mlm_4</code>: Allow for varying slopes and varying intercept at each location</li>
+</ol></li>
+<li>Compare the models via LOO-CV
+<ul>
+<li>You need <code>loo()</code> and <code>loo_compare()</code></li>
+</ul></li>
+<li>Interpret the results. What are your conclusions?</li>
+</ol>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="modeling-group-comparisons" class="title-slide slide level1 center">
+<h1>Modeling group comparisons</h1>
+
+</section>
+<section id="imdb-movies" class="slide level2">
+<h2>IMDB movies</h2>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-34-1.png" width="960" class="r-stretch quarto-figure-center"><p>Source of idea, data, and visualization: <a href="https://github.com/andrewheiss/diff-means-half-dozen-ways">Andrew Heiss (Link)</a></p>
+</section>
+<section id="group-means-as-regression-models" class="slide level2">
+<h2>Group means as regression models</h2>
+<p>Formulating a group mean comparison as a regression:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>lm_means <span class="ot">=</span> <span class="fu">brm</span>(</span>
+<span id="cb35-2"><a href="#cb35-2"></a>  rating <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> genre,</span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="at">data =</span> movies,</span>
+<span id="cb35-4"><a href="#cb35-4"></a>  <span class="at">file =</span> <span class="st">"models/movies_lm_means.rds"</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="model-summary-rating-0-genre" class="slide level2">
+<h2>Model summary: <code>rating ~ 0 + genre</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">summary</span>(lm_means)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: rating ~ 0 + genre 
+   Data: movies (Number of observations: 400) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Population-Level Effects: 
+            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+genreAction     5.07      0.10     4.87     5.27 1.00     4402     2971
+genreComedy     5.86      0.11     5.65     6.07 1.00     4157     3017
+
+Family Specific Parameters: 
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     1.48      0.05     1.38     1.58 1.00     3573     2900
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+</section>
+<section id="modeling-distributional-parameters" class="slide level2">
+<h2>Modeling distributional parameters</h2>
+<p>We can also estimate the standard deviation <span class="math inline">\(\sigma\)</span> of each group in addition to the mean:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>lm_means_sd <span class="ot">=</span> <span class="fu">brm</span>(</span>
+<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">bf</span>(rating <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> genre, sigma <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> genre),</span>
+<span id="cb38-3"><a href="#cb38-3"></a>  <span class="at">data =</span> movies,</span>
+<span id="cb38-4"><a href="#cb38-4"></a>  <span class="at">file =</span> <span class="st">"models/movies_lm_means_sd.rds"</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="model-summary-rating-0-genre-sigma-0-genre" class="slide level2">
+<h2>Model summary: <code>rating ~ 0 + genre, sigma ~ 0 + genre</code></h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">summary</span>(lm_means_sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = log 
+Formula: rating ~ 0 + genre 
+         sigma ~ 0 + genre
+   Data: movies (Number of observations: 400) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Population-Level Effects: 
+                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+genreAction           5.07      0.11     4.85     5.28 1.00     4444     3211
+genreComedy           5.86      0.10     5.67     6.04 1.00     4449     3256
+sigma_genreAction     0.45      0.05     0.36     0.55 1.00     4422     2841
+sigma_genreComedy     0.33      0.05     0.23     0.43 1.00     4300     3140
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+</section>
+<section id="retrieving-the-standard-deviations" class="slide level2">
+<h2>Retrieving the standard deviations</h2>
+<p>For <a href="https://vuorre.netlify.app/posts/2017-01-02-how-to-compare-two-groups-with-robust-bayesian-estimation-using-r-stan-and-brms/">mathy reasons (Link)</a>, the <code>sigma</code> draws are on a log scale, so we need to exponentiate them back to the data scale:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>post_samples <span class="ot">=</span> <span class="fu">posterior_samples</span>(lm_means_sd) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">mutate_at</span>(<span class="fu">vars</span>(<span class="fu">contains</span>(<span class="st">"sigma"</span>)), <span class="fu">funs</span>(exp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell column-screen-inset-shaded quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-40-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-40-2.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="computing-custom-posterior-quantities" class="slide level2">
+<h2>Computing custom posterior quantities</h2>
+<p>We can treat the posterior samples like a data frame and compute arbitrary quantities for each draw.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>post_samples_diff <span class="ot">=</span> post_samples <span class="sc">%&gt;%</span> </span>
+<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">mutate</span>(<span class="at">mean_diff =</span> b_genreAction <span class="sc">-</span> b_genreComedy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="index_files/figure-revealjs/unnamed-chunk-42-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="region-of-practical-equivalence-rope" class="slide level2">
+<h2>Region of practical equivalence (ROPE)</h2>
+<p>Define a region that is practically equivalent to a point value.</p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example: Coin flip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Coin flip</strong> with Binomial parameter <span class="math inline">\(\theta\)</span>: ROPE = <span class="math inline">\([0.45, 0.55]\)</span> for a fair coin</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="index_files/figure-revealjs/unnamed-chunk-43-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><strong>Other Examples</strong></p>
+<ul>
+<li>Correlation coefficient <span class="math inline">\(r\)</span>: <span class="math inline">\([-0.10, 0.10]\)</span></li>
+<li>Odd’s ratio <span class="math inline">\(OR\)</span>: <span class="math inline">\([0.95, 1.05]\)</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exercise-4" class="slide level2">
+<h2>Exercise</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>IMDB movie ratings: Effect size and ROPE</strong></p>
+</div>
+<div class="callout-content">
+<ol>
+<li>Compute the posterior distribution of Cohen’s <span class="math inline">\(d\)</span> for the movie genre comparison</li>
+<li>Define a sensible region of practical equivalence (ROPE) for Cohen’s <span class="math inline">\(d\)</span></li>
+<li>Choose a sensible credible interval for reporting the posterior distribution of Cohen’s <span class="math inline">\(d\)</span></li>
+<li>Visualize the ROPE and the posterior credible interval of <span class="math inline">\(d\)</span></li>
+<li>Interpret the result</li>
+<li><strong>Optional:</strong> Change the model family to <em>Student-t</em>.
+<ul>
+<li>Find out which additional parameter this will model, add a prior for it.</li>
+<li>Should we model the data with a Student-<span class="math inline">\(t\)</span> family?</li>
+</ul></li>
+</ol>
+</div>
+</div>
+</div>
+<p>Use the definition <span class="math inline">\(d = \dfrac{\mu_1 - \mu_2}{\frac{1}{2}\sqrt{\sigma_1^2 + \sigma_2^2}}\)</span></p>
+<div class="callout callout-warning callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Attention: Variance <span class="math inline">\(\leftrightarrow\)</span> SD</strong></p>
+</div>
+<div class="callout-content">
+<p>Remember to square the <code>sigma</code> draws for the computation of Cohen’s <span class="math inline">\(d\)</span>!</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="outlook" class="title-slide slide level1 center">
+<h1>Outlook</h1>
+
+</section>
+<section id="using-bayesian-inference-for-your-own-projects" class="slide level2">
+<h2>Using Bayesian inference for your own projects</h2>
+<div class="callout callout-tip callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>3 questions about your own research projects</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Which concrete statistical models am I currently using?</li>
+<li>How might these models benefit from Bayesian inference?</li>
+<li>What knowledge am I missing to use a Bayesian approach?</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Work through these guiding questions. Let your answers be <em>as specific as possible</em>. If applicable, you can also sketch out concrete next steps or some equations.</p>
+<div style="font-size:1.3em;">
+<ul>
+<li><i class="fa-regular fa-face-smile" aria-label="face-smile"></i> <strong>Think</strong> (<em>5min</em>)</li>
+<li><i class="fa-solid fa-masks-theater" aria-label="masks-theater"></i> <strong>Pair</strong> (<em>15min</em>)</li>
+<li><i class="fa-regular fa-comment-dots" aria-label="comment-dots"></i> <strong>Share</strong></li>
+</ul>
+</div>
+</section>
+<section id="reading-tips" class="slide level2">
+<h2>Reading tips</h2>
+<ul>
+<li>Richard McElreath (2020). <em>Statistical Rethinking: A Bayesian course with examples in R and Stan</em>. CRC Press.
+<ul>
+<li>The best book to start with Bayesian inference. Highly recommended!</li>
+<li>Great free lectures on YouTube (<a href="https://youtube.com/playlist?list=PLDcUM9US4XdPz-KxHM4XHt7uUVGWWVSus&amp;feature=shared">Link</a>)</li>
+</ul></li>
+<li>Andrew Gelman, John Carlin, Has Stern, David Dunson, Aki Vehtari, &amp; Donald Rubin (2021). <em>Bayesian Data Analysis</em>. Volume 3.
+<ul>
+<li>Much more technical, probably more of a reference</li>
+<li>Accompanying online course by Aki Vehtari (<a href="https://github.com/avehtari/BDA_course_Aalto">Link</a>)</li>
+</ul></li>
+</ul>
+</section>
+<section id="contact" class="slide level2">
+<h2>Contact</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><strong>Marvin Schmitt</strong></p>
+<p><i class="fa-brands fa-twitter" aria-label="twitter"></i> <a href="https://twitter.com/MarvinSchmittML"><span class="citation" data-cites="MarvinSchmittML">@MarvinSchmittML</span></a></p>
+<p><i class="fa-brands fa-mastodon" aria-label="mastodon"></i> <a href="https://mastodon.online/@MarvinSchmitt"><span class="citation" data-cites="MarvinSchmitt">@MarvinSchmitt</span><span class="citation" data-cites="mastodon.online">@mastodon.online</span></a></p>
+<p><i class="fa-solid fa-globe" aria-label="globe"></i> <a href="https://www.marvinschmitt.com">www.marvinschmitt.com</a></p>
+<p><i class="fa-solid fa-envelope" aria-label="envelope"></i> <a href="mailto:mail.marvinschmitt@gmail.com">mail.marvinschmitt@gmail.com</a></p>
+</div><div class="column" style="width:22%;">
+<p><img data-src="../../assets/ms_portrait.png"></p>
+</div>
+</div>
+<h3 id="credits">Credits</h3>
+<p>Special thanks to <a href="https://paul-buerkner.github.io">Paul Bürkner</a> for providing me with workshop material on Bayesian modeling with <code>brms</code>. The <code>brms</code> introduction is heavily inspired by Paul’s material.</p>
+
+<p><img src="../../assets/ms_icon.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Bayesian statistics workshop | Marvin Schmitt | <a href="https://marvinschmitt.github.io/bayes-workshop">marvinschmitt.github.io/bayes-workshop</a></p>
+</div>
+</section></section>
     </div>
   </div>
 
@@ -556,6 +1764,44 @@ Marvin Schmitt
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

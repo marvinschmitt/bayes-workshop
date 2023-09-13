@@ -1,0 +1,1 @@
+Sitemap: https://marvinschmitt.github.io/bayes-workshop/sitemap.xml

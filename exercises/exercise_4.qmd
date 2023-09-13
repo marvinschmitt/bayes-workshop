@@ -1,0 +1,15 @@
+---
+title: "Exercise 4"
+---
+
+
+## Data
+
+Download the data set `icecream2.csv` and read it into your `R` environment:
+
+<a class="btn btn-outline-primary" href="/data/icecream2.csv" download role="button" style="padding: 5px 5px;">Data set download</a>
+
+{{< include /exercises/_exercise_4_tasks.qmd >}}
+
+## Hints
+

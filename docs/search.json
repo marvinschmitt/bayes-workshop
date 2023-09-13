@@ -4,7 +4,7 @@
     "href": "setup/index.html",
     "title": "Setup Instructions",
     "section": "",
-    "text": "Hello! If you can read this, odds are that you have successfully installed the R and RStudio programming environment for the course. Please follow the instructions in this document to make sure that everything works as expected. First and foremost, please download the .qmd file so that you can execute the installation steps. Open the downloaded file index.qmd in RStudio.\n\n\n\n\n\n\n Download the .qmd file for the setup\n\n\n\n\n\n\n\n\n\nImportant\n\n\n\nDo not hit Render yet, the installation commands might cause errors. Instead, execute the code in the cells by navigating your cursor to a line and hitting Ctrl+Enter (Cmd+Enter on Mac).\nOnce you have installed all packages, you can go ahead and hit Render once to get a pretty output file.\n\n\n\n\nLet’s see if the basic R functionality works as expected.\n\nx = 5\ny = 2\nz = x + y\nprint(z)\n\n[1] 7\n\nw = sqrt(z)\nprint(w)\n\n[1] 2.645751\n\n\nAwesome, let’s install some key packages for working in R!"
+    "text": "Hello! If you can read this, odds are that you have successfully installed the R and RStudio programming environment for the course. Please follow the instructions in this document to make sure that everything works as expected. First and foremost, please download the .qmd file so that you can execute the installation steps.\n\n\n\n\n\n\n Download the .qmd file for the setup\n\n\n\nOpen the downloaded file bayes_setup.qmd in RStudio and execute the code while you read through the instructions.\n\n\n\n\n\n\nImportant\n\n\n\nDo not hit Render yet, the installation commands might cause errors. Instead, execute the code in the cells by navigating your cursor to a line and hitting Ctrl+Enter (Cmd+Enter on Mac).\nOnce you have installed all packages, you can go ahead and hit Render once to get a pretty output file.\n\n\n\n\nLet’s see if the basic R functionality works as expected.\n\nx = 5\ny = 2\nz = x + y\nprint(z)\n\n[1] 7\n\nw = sqrt(z)\nprint(w)\n\n[1] 2.645751\n\n\nAwesome, let’s install some key packages for working in R!"
   },
   {
     "objectID": "setup/index.html#install-brms-and-rstan",
@@ -35,20 +35,6 @@
     "text": "Twitter\n  \n  \n    \n     Github\n  \n  \n    \n     LinkedIn\n  \n  \n    \n     Email"
   },
   {
-    "objectID": "slides/index.html",
-    "href": "slides/index.html",
-    "title": "Slides",
-    "section": "",
-    "text": "This website contains the slides of the workshop for your reference. You can check back later to go through the material again.\n\n\n\nIf you prefer to view the presentation in a standalone browser tab, you can do that here."
-  },
-  {
-    "objectID": "exercises/index.html",
-    "href": "exercises/index.html",
-    "title": "Bayesian Statistics Workshop",
-    "section": "",
-    "text": "To be released, stay tuned."
-  },
-  {
     "objectID": "index.html#prior-knowledge",
     "href": "index.html#prior-knowledge",
     "title": "Bayesian Statistics Workshop",
@@ -70,10 +56,528 @@
     "text": "Instructor\nThe workshop is instructed by Marvin Schmitt."
   },
   {
-    "objectID": "slides/slide_deck/index.html#agenda",
-    "href": "slides/slide_deck/index.html#agenda",
+    "objectID": "slides/slide_deck/index.html#whoami",
+    "href": "slides/slide_deck/index.html#whoami",
     "title": "Bayesian Statistics",
-    "section": "Agenda",
-    "text": "Agenda\n\nIntroduction\nFrequentist vs. Bayesian statistics\nBayesian inference in R\nPractice\nNext steps for your projects\n\n\n\n\nBayesian statistics workshop | Marvin Schmitt"
+    "section": "> whoami",
+    "text": "> whoami\n\n\n\n[1] marvin at location 0xFF35AFEE5801, display_name: \"Marvin Schmitt\"\n\n\n> marvin$education\n\n[1] Now: PhD candidate, Cluster of Excellence SimTech, University of Stuttgart\n[2] MSc in Data & Computer Science, Heidelberg University\n[3] MSc in Psychology, Heidelberg University\n\n\n> marvin$research\n\n[1] Bayesian inference, deep learning, uncertainty quantification\n[4] simulation-based inference, trustworthy ML\n\n\n\n> marvin$print_image()"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#download-the-course-materials",
+    "href": "slides/slide_deck/index.html#download-the-course-materials",
+    "title": "Bayesian Statistics",
+    "section": "Download the course materials",
+    "text": "Download the course materials\n\nmarvinschmitt.github.io/bayes-workshop"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#inverse-problems",
+    "href": "slides/slide_deck/index.html#inverse-problems",
+    "title": "Bayesian Statistics",
+    "section": "Inverse problems",
+    "text": "Inverse problems"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#bayesian-inference",
+    "href": "slides/slide_deck/index.html#bayesian-inference",
+    "title": "Bayesian Statistics",
+    "section": "Bayesian inference",
+    "text": "Bayesian inference\n\n\n\n\n\n\\[\np(\\theta\\,|\\,y) = \\dfrac{p(y\\,|\\,\\theta)\\,p(\\theta)}{p(y)} = \\dfrac{p(y\\,|\\,\\theta)\\,p(\\theta)}{\\int p(y\\,|\\,\\theta)\\,p(\\theta)\\mathrm{d}\\theta}\n\\]\n\nImportant terms\n\nPrior \\(p(\\theta)\\)\nLikelihood \\(p(y\\,|\\,\\theta)\\)\nMarginal likelihood \\(p(y)\\)\nPosterior \\(p(\\theta\\,|\\,y)\\)\n\n\n\nFor discrete parameters \\(\\theta\\), the integral turns into a sum:\n\\[\np(\\theta\\,|\\,y) = \\dfrac{p(y\\,|\\,\\theta)\\,p(\\theta)}{p(y)} = \\dfrac{p(y\\,|\\,\\theta)\\,p(\\theta)}{\\sum p(y\\,|\\,\\theta)\\,p(\\theta)}\n\\]"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#example-eye-color-setting",
+    "href": "slides/slide_deck/index.html#example-eye-color-setting",
+    "title": "Bayesian Statistics",
+    "section": "Example: Eye color, setting",
+    "text": "Example: Eye color, setting\n\n\n\n\n\n\nReasoning about eye color\n\n\n\nAmong the world population, a proportion \\(\\theta\\) of humans have brown eyes\nEach human either has at least one brown eye (\\(y_i=1\\)) or not (\\(y_i=0\\))\nWe have data on \\(N=20\\) humans and observe \\(y=11\\) with brown eyes\nSimplification: Suppose that \\(\\theta\\) can only take on the values \\(.20, .50, .80\\)\n\n\n\n\nWe assume a Binomial likelihood: \\(p(y\\,|\\,\\theta, N) = \\binom{n}{y}\\,\\theta^y\\,(1-\\theta)^{N-y}\\)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#example-eye-color-prior",
+    "href": "slides/slide_deck/index.html#example-eye-color-prior",
+    "title": "Bayesian Statistics",
+    "section": "Example: Eye color, prior",
+    "text": "Example: Eye color, prior\n\n\n\n\n\n\nReasoning about eye color\n\n\n\nAmong the world population, a proportion \\(\\theta\\) of humans have brown eyes\nEach human either has at least one brown eye (\\(y_i=1\\)) or not (\\(y_i=0\\))\nWe have data on \\(N=20\\) humans and observe \\(y=11\\) with brown eyes\nSimplification: Suppose that \\(\\theta\\) can only take on the values \\(.20, .50, .80\\)\n\n\n\n\nSuppose we have the following prior belief about the rate \\(\\theta\\) of brown-eyed people:\n\n\\(p(\\theta = 0.20) = 0.10\\)\n\\(p(\\theta = 0.50) = 0.40\\)\n\\(p(\\theta = 0.80) = 0.50\\)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#example-eye-color-posterior-i",
+    "href": "slides/slide_deck/index.html#example-eye-color-posterior-i",
+    "title": "Bayesian Statistics",
+    "section": "Example: Eye color, posterior (I)",
+    "text": "Example: Eye color, posterior (I)\n\n\n\n\n\n\nReasoning about eye color\n\n\n\nAmong the world population, a proportion \\(\\theta\\) of humans have brown eyes\nEach human either has at least one brown eye (\\(y_i=1\\)) or not (\\(y_i=0\\))\nWe have data on \\(N=20\\) humans and observe \\(y=11\\) with brown eyes\nSimplification: Suppose that \\(\\theta\\) can only take on the values \\(.20, .50, .80\\)\n\n\n\n\nWe compute the joint distribution \\(p(\\theta, y)\\) as \\(p(\\theta)\\cdot p(y\\,|\\,\\theta)\\)\n\n\n\n\n\n\n\n\nPrior \\(p(\\theta)\\)\nLikelihood \\(p(y\\,|\\,\\theta)\\)\nJoint \\(p(\\theta, y)\\)\n\n\n\n\n\\(p(\\theta=0.20)=0.10\\)\n\\(p(y = 11\\,|\\,\\theta=0.20, N=20)=0.0005\\)\n\\(0.00005\\)\n\n\n\\(p(\\theta=0.50)=0.40\\)\n\\(p(y = 11\\,|\\,\\theta=0.50, N=20)=0.1602\\)\n\\(0.06408\\)\n\n\n\\(p(\\theta=0.80)=0.50\\)\n\\(p(y = 11\\,|\\,\\theta=0.80, N=20)=0.0074\\)\n\\(0.00370\\)\n\n\n\nMarginal likelihood \\(p(y) = \\sum_{\\theta}p(\\theta, y) = 0.00005 + 0.06408 + 0.00370 = 0.06783\\)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#example-eye-color-posterior-ii",
+    "href": "slides/slide_deck/index.html#example-eye-color-posterior-ii",
+    "title": "Bayesian Statistics",
+    "section": "Example: Eye color, posterior (II)",
+    "text": "Example: Eye color, posterior (II)\n\n\n\n\n\n\nReasoning about eye color\n\n\n\nAmong the world population, a proportion \\(\\theta\\) of humans have brown eyes\nEach human either has at least one brown eye (\\(y_i=1\\)) or not (\\(y_i=0\\))\nWe have data on \\(N=20\\) humans and observe \\(y=11\\) with brown eyes\nSimplification: Suppose that \\(\\theta\\) can only take on the values \\(.20, .50, .80\\)\n\n\n\n\nMarginal likelihood \\(p(y) = \\sum_{\\theta}p(\\theta, y) = 0.00005 + 0.06408 + 0.00370 = 0.06783\\)\nWe compute the posterior as \\(p(\\theta\\,|\\,y)=\\dfrac{p(y)\\,p(y\\,|\\,\\theta)}{p(y)}\\)\n\n\n\n\n\n\n\n\nParameter \\(\\theta\\)\nJoint \\(p(\\theta, y)\\)\nPosterior \\(p(\\theta\\,|\\,y)\\)\n\n\n\n\n\\(\\theta=0.20\\)\n\\(p(\\theta=0.20, y=11) = 0.00005\\)\n\\(p(\\theta=0.20\\,|\\,y=11) = 0.0007\\)\n\n\n\\(\\theta=0.50\\)\n\\(p(\\theta=0.50, y=11) = 0.06408\\)\n\\(p(\\theta=0.50\\,|\\,y=11) = 0.9447\\)\n\n\n\\(\\theta=0.80\\)\n\\(p(\\theta=0.80, y=11) = 0.00370\\)\n\\(p(\\theta=0.80\\,|\\,y=11) = 0.0545\\)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#example-eye-color-r-code",
+    "href": "slides/slide_deck/index.html#example-eye-color-r-code",
+    "title": "Bayesian Statistics",
+    "section": "Example: Eye color, R code",
+    "text": "Example: Eye color, R code\n\n\nN = 20\ny = 11\n\ntheta = c(0.20, 0.50, 0.80)\nprior = c(0.10, 0.40, 0.50)\nlikelihood = dbinom(y, N, theta)\njoint = prior * likelihood\n\nposterior = joint / sum(joint)\n\nprint(cbind(theta, prior, likelihood, posterior))\n\n     theta prior   likelihood    posterior\n[1,]   0.2   0.1 0.0004616849 0.0006808377\n[2,]   0.5   0.4 0.1601791382 0.9448521445\n[3,]   0.8   0.5 0.0073869589 0.0544670178"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#exercise",
+    "href": "slides/slide_deck/index.html#exercise",
+    "title": "Bayesian Statistics",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\n\n\n\nThe Bayesian coin flip\n\n\nImplement Bayesian updating for a coin flip experiment that tries to find the true probability \\(\\theta\\) of heads.\n\nWhat is a suitable likelihood \\(p(y\\,|\\,\\theta)\\)?\nWhat is the parameter \\(\\theta\\) of that likelihood?\nHow can you encode your prior belief about \\(\\theta\\) in a distribution?\n\nPossible values of \\(\\theta\\)?\nAreas of high mass?\nUse R to sample and visualize some distributions.\n\nHow does the result change if you increase the number of observations N?\nOptional:\n\nCompute the Maximum Likelihood Estimate (MLE)\nCompare the MLE with mode of the posterior distribution (aka. MAP)\nWhen do MLE and MAP differ?\nCan you make MLE and MAP equal?"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#linear-regression-models-basics",
+    "href": "slides/slide_deck/index.html#linear-regression-models-basics",
+    "title": "Bayesian Statistics",
+    "section": "Linear regression models: basics",
+    "text": "Linear regression models: basics\n\\(y = \\underbrace{a + b_1x_1 + \\ldots + b_Kx_K}_{\\text{mean}\\ \\mu} + \\varepsilon\\quad\\text{with}\\;\\varepsilon\\sim\\mathcal{N}(0, \\sigma)\\)\n\n\n\n\n\n\nComponents of the linear model\n\n\n\nData \\(y\\)\nParameters: \\(\\theta = (a, b_1, \\ldots, b_K, \\sigma)\\)\n\nIntercept \\(a\\)\nRegression weights \\(b_1,\\ldots,b_K\\)\nError \\(\\sigma\\)\n\nPosterior distribution: \\(p(a, b_1, \\ldots, b_K, \\sigma\\,|\\,y)\\)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#sampling-from-the-posterior-mcmc",
+    "href": "slides/slide_deck/index.html#sampling-from-the-posterior-mcmc",
+    "title": "Bayesian Statistics",
+    "section": "Sampling from the posterior: MCMC",
+    "text": "Sampling from the posterior: MCMC\nAnalytic models are desirable, but the real world is continuous and more complex. Computing the marginal likelihood \\(p(y)=\\int p(y,\\theta)\\mathrm{d}\\theta\\) is usually infeasible.\nSolution: Markov-Chain Monte Carlo (MCMC), for our purpose treat it as:\n\nDefine the prior \\(p(\\theta)\\) and likelihood \\(p(y\\,|\\,\\theta)\\)\nRun MCMC\n???\nProfit: get samples from the posterior \\(p(\\theta\\,|\\,y)\\)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#the-brms-package",
+    "href": "slides/slide_deck/index.html#the-brms-package",
+    "title": "Bayesian Statistics",
+    "section": "The brms package",
+    "text": "The brms package\n\n\nbrms is an R interface to the probabilistic programming language Stan for Bayesian inference. It is designed to be accessible and usable by people who would otherwise use packages like lme4.\n\n\n\n\nWhy use brms?\n\nGenerated Stan code can be accessed\nVery flexible: MLM, hurdle models, distributional regression, …\nActively maintained\nFormula syntax based on lme4\nIntegration to post-processing and visualization libraries like bayesplot"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#live-footage-right-now",
+    "href": "slides/slide_deck/index.html#live-footage-right-now",
+    "title": "Bayesian Statistics",
+    "section": "Live footage right now",
+    "text": "Live footage right now"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#fitting-a-brms-model",
+    "href": "slides/slide_deck/index.html#fitting-a-brms-model",
+    "title": "Bayesian Statistics",
+    "section": "Fitting a brms model",
+    "text": "Fitting a brms model\nThe brm() function is the core entry point into brms to sample from the posterior distribution:\n\nlm_base = brm(\n  formula = y ~ x,\n  family = gaussian(),\n  data = df,\n  iter = 4000,\n  chains = 4,\n  file = \"models/lm_base.rds\"\n)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#visualize-mcmc-chains",
+    "href": "slides/slide_deck/index.html#visualize-mcmc-chains",
+    "title": "Bayesian Statistics",
+    "section": "Visualize MCMC chains",
+    "text": "Visualize MCMC chains\n\nmcmc_plot(lm_base, type = \"trace\")"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#visualize-the-posterior-draws",
+    "href": "slides/slide_deck/index.html#visualize-the-posterior-draws",
+    "title": "Bayesian Statistics",
+    "section": "Visualize the posterior draws",
+    "text": "Visualize the posterior draws\n\nmcmc_plot(lm_base, type = \"dens\")"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#side-by-side-mcmc-chains-and-posterior-draws",
+    "href": "slides/slide_deck/index.html#side-by-side-mcmc-chains-and-posterior-draws",
+    "title": "Bayesian Statistics",
+    "section": "Side-by-side: MCMC chains and posterior draws",
+    "text": "Side-by-side: MCMC chains and posterior draws\n\n\n\nmcmc_plot(lm_base, type = \"trace\")\n\n\n\n\n\n\n\n\n\n\nmcmc_plot(lm_base, type = \"dens\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe density plots show the stationary distributions of the Markov chains."
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#the-posterior-is-a-multidimensional-distribution",
+    "href": "slides/slide_deck/index.html#the-posterior-is-a-multidimensional-distribution",
+    "title": "Bayesian Statistics",
+    "section": "The posterior is a multidimensional distribution",
+    "text": "The posterior is a multidimensional distribution\n\\[\np(\\theta\\,|\\,y) = p(a, b, \\sigma\\,|\\,y)\n\\]\nInspecting the posterior draws \\((a, b)\\) shows a pattern:\n\nmcmc_pairs(lm_base, pars=c(\"b_Intercept\", \"b_x\"))"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#model-summary",
+    "href": "slides/slide_deck/index.html#model-summary",
+    "title": "Bayesian Statistics",
+    "section": "Model summary",
+    "text": "Model summary\n\nsummary(lm_base)\n\n Family: gaussian \n  Links: mu = identity; sigma = identity \nFormula: y ~ x \n   Data: df (Number of observations: 50) \n  Draws: 4 chains, each with iter = 4000; warmup = 2000; thin = 1;\n         total post-warmup draws = 8000\n\nPopulation-Level Effects: \n          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nIntercept    13.98      2.30     9.56    18.44 1.00     7761     5773\nx            -1.38      0.91    -3.16     0.39 1.00     7715     5659\n\nFamily Specific Parameters: \n      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nsigma     5.88      0.60     4.86     7.21 1.00     6751     5261\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#visualize-modeled-expectation",
+    "href": "slides/slide_deck/index.html#visualize-modeled-expectation",
+    "title": "Bayesian Statistics",
+    "section": "Visualize modeled expectation",
+    "text": "Visualize modeled expectation\n\nce <- conditional_effects(lm_base, method = \"pp_expect\")\nplot(ce, points = TRUE)\n\n\nThe expectation is the mean \\(\\mu\\) in the linear model (no noise \\(\\varepsilon\\)):\n\\[y = \\underbrace{a + b_1x_1 + \\ldots + b_Kx_K}_{\\text{mean}\\ \\mu} + \\varepsilon\\quad\\text{with}\\;\\varepsilon\\sim\\mathcal{N}(0, \\sigma)\\]"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#defining-a-prior-in-brms",
+    "href": "slides/slide_deck/index.html#defining-a-prior-in-brms",
+    "title": "Bayesian Statistics",
+    "section": "Defining a prior in brms",
+    "text": "Defining a prior in brms\n\npriors = prior(normal(0, 100), class = \"Intercept\") +\n         prior(normal(0, 50), class = \"b\", coef = \"x\") +\n         prior(cauchy(0, 50), class = \"sigma\")\n\nFeatures of brms priors\n\nPriors can be combined with the + operator\nThe class argument defines the type of parameter the coef argument further defines the target parameter\n\nclass= 'b' and coef='x' refers to the regression weight for the variable x\n\nThe distribution is easy to define with many available options (see the Stan reference for all available distributions)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#passing-the-prior-to-the-brms-model",
+    "href": "slides/slide_deck/index.html#passing-the-prior-to-the-brms-model",
+    "title": "Bayesian Statistics",
+    "section": "Passing the prior to the brms model",
+    "text": "Passing the prior to the brms model\nWe use the prior argument to set the custom prior:\n\nlm_prior = brm(y ~ x, \n              data = df, \n              prior = priors,\n              file = \"models/lm_prior.rds\")"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#exercise-1",
+    "href": "slides/slide_deck/index.html#exercise-1",
+    "title": "Bayesian Statistics",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\n\n\n\nModeling icecream sales at different temperatures\n\n\n\nModel the icecream.csv data with a Bayesian regression model\nChoose a likelihood function\nDefine a prior distribution\nVisualize the posterior draws as a density plot\nVisualize the modeled expectation \\(\\mu\\) (i.e., regression line with uncertainty)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#posterior-predictive-distribution-theory",
+    "href": "slides/slide_deck/index.html#posterior-predictive-distribution-theory",
+    "title": "Bayesian Statistics",
+    "section": "Posterior predictive distribution: Theory",
+    "text": "Posterior predictive distribution: Theory\nDistribution of model-implied data \\(\\tilde{y}\\) conditional on the existing data \\(y\\):\n\\[\np(\\tilde{y}\\,|\\,y) = \\int p(\\tilde{y}\\,|\\,y,\\theta)\\,p(\\theta\\,|\\,y)\\mathrm{d}\\theta\n\\]\n\n\n\n\n\n\nTip\n\n\nThe posterior predictive distribution lives on the data domain but incorporates the uncertainty from the Bayesian update!"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#posterior-predictive-distribution-practice",
+    "href": "slides/slide_deck/index.html#posterior-predictive-distribution-practice",
+    "title": "Bayesian Statistics",
+    "section": "Posterior predictive distribution: Practice",
+    "text": "Posterior predictive distribution: Practice\nImagine the posterior predictive distribution as a multi-step sampling process:\n\nSample \\(\\hat{\\theta}^{(s)}\\) from the posterior distribution\nPlug the sample \\(\\hat{\\theta}^{(s)}\\) into the likelihood\nResult: one draw from the posterior predictive distribution\n\n\n\nPseudocode\nfor s in [1...S]:\n  theta_sample = posterior_samples[s]\n  y_hat = likelihood_function(theta_sample)\n\nFor an imaginary Gaussian model\nfor s in [1...S]:\n  mu_sample = posterior_samples[s, \"mu\"]\n  sigma_sample = posterior_samples[s, \"sigma\"]\n  y_hat = rnorm(N, mu_sample, sigma_sample)\n\n\n\n\n\n\n\n\nIntuitive phrasing\n\n\nposterior predictive = mean prediction + noise"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#posterior-predictive-distribution-expectations-i",
+    "href": "slides/slide_deck/index.html#posterior-predictive-distribution-expectations-i",
+    "title": "Bayesian Statistics",
+    "section": "Posterior predictive distribution: Expectations I",
+    "text": "Posterior predictive distribution: Expectations I\n\nce <- conditional_effects(lm_prior, method = \"pp_expect\", spaghetti = TRUE, ndraws=50)\nplot(ce, points = TRUE, spaghetti_args = list(alpha=1.0, colour=\"blue\"))"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#posterior-predictive-distribution-expectations-ii",
+    "href": "slides/slide_deck/index.html#posterior-predictive-distribution-expectations-ii",
+    "title": "Bayesian Statistics",
+    "section": "Posterior predictive distribution: Expectations II",
+    "text": "Posterior predictive distribution: Expectations II\n\nce <- conditional_effects(lm_prior, method = \"pp_expect\")\nplot(ce, points = TRUE)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#posterior-predictive-distribution-data-domain",
+    "href": "slides/slide_deck/index.html#posterior-predictive-distribution-data-domain",
+    "title": "Bayesian Statistics",
+    "section": "Posterior predictive distribution: Data domain",
+    "text": "Posterior predictive distribution: Data domain\n\nposterior_draws = posterior_samples(lm_prior)\n\nfor (i in 1:3){\n  plot(df$x, df$y, pch=16, cex=1.5, col=\"gray\", ylim=c(0, 60))\n  mu = posterior_draws[i, \"b_Intercept\"] + posterior_draws[i, \"b_x\"] * df$x\n  lines(df$x, mu, col=\"blue\", lwd=4)\n  \n  sigma = posterior_draws[i, \"sigma\"]\n  y_sim = rnorm(50, mean=mu, sd = sigma)\n  points(df$x, y_sim, col=\"orange\", pch=16, cex=1.5) \n}"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#comparing-models-with-predictive-fit-loo-cv",
+    "href": "slides/slide_deck/index.html#comparing-models-with-predictive-fit-loo-cv",
+    "title": "Bayesian Statistics",
+    "section": "Comparing models with predictive fit: LOO-CV",
+    "text": "Comparing models with predictive fit: LOO-CV\nLeave-One-Out Cross-Validation (LOO-CV) computes the expected fit on unseen data:\n\nSplit the data \\(y\\) into test set (one observation) and training set (rest of \\(y\\))\nFit posterior on training set\nCompute predictive fit on test observation\nRepeat 1–3 on many different splits"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#exercise-2",
+    "href": "slides/slide_deck/index.html#exercise-2",
+    "title": "Bayesian Statistics",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\n\n\n\nComparing ice cream models\n\n\n\nPlot the posterior predictive distribution for the icecream model\nDefine two more ice cream models, for example with …\n\n… another prior distribution\n… another likelihood\n\nCompare the models via LOO-CV\nInterpret the results. What are your conclusions?"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#ice-cream-sales-at-different-locations-simple-model",
+    "href": "slides/slide_deck/index.html#ice-cream-sales-at-different-locations-simple-model",
+    "title": "Bayesian Statistics",
+    "section": "Ice cream sales at different locations: simple model",
+    "text": "Ice cream sales at different locations: simple model"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#simple-linear-model-in-brms",
+    "href": "slides/slide_deck/index.html#simple-linear-model-in-brms",
+    "title": "Bayesian Statistics",
+    "section": "Simple linear model in brms",
+    "text": "Simple linear model in brms\n\nicecream_lm <- brm(\n  units ~ temp, \n  data = icecream2,\n  file = \"models/icecream_lm.rds\"\n)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#model-summary-1",
+    "href": "slides/slide_deck/index.html#model-summary-1",
+    "title": "Bayesian Statistics",
+    "section": "Model summary",
+    "text": "Model summary\n\nsummary(icecream_lm)\n\n Family: gaussian \n  Links: mu = identity; sigma = identity \nFormula: units ~ temp \n   Data: icecream2 (Number of observations: 72) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nPopulation-Level Effects: \n          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nIntercept  -132.56    130.02  -392.02   115.60 1.00     3673     2773\ntemp         25.54      6.78    12.43    39.02 1.00     3680     2631\n\nFamily Specific Parameters: \n      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nsigma   216.89     18.16   184.84   256.15 1.00     3649     2729\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#visualize-mean-predictions",
+    "href": "slides/slide_deck/index.html#visualize-mean-predictions",
+    "title": "Bayesian Statistics",
+    "section": "Visualize mean predictions",
+    "text": "Visualize mean predictions\n\nce <- conditional_effects(icecream_lm, method = \"pp_expect\")\nplot(ce, points = TRUE)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#visualize-data-predictions",
+    "href": "slides/slide_deck/index.html#visualize-data-predictions",
+    "title": "Bayesian Statistics",
+    "section": "Visualize data predictions",
+    "text": "Visualize data predictions\n\nce <- conditional_effects(icecream_lm, method = \"pp\")\nplot(ce, points = TRUE)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#respecting-the-multilevel-structure",
+    "href": "slides/slide_deck/index.html#respecting-the-multilevel-structure",
+    "title": "Bayesian Statistics",
+    "section": "Respecting the multilevel structure",
+    "text": "Respecting the multilevel structure"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#multilevel-model-in-brms",
+    "href": "slides/slide_deck/index.html#multilevel-model-in-brms",
+    "title": "Bayesian Statistics",
+    "section": "Multilevel model in brms",
+    "text": "Multilevel model in brms\n\nicecream_mlm_1 = brm(\n  units ~ temp + (1 | location),\n  data = icecream2,\n  file = \"models/icecream_mlm_1.rds\",\n  control = list(adapt_delta = 0.99)\n)\n\n\n\n\n\n\n\nThe adapt_delta parameter\n\n\nIncreasing adapt_delta slows down the sampler but creates fewer divergent transitions.\nRule of thumb: increase adapt_delta if you get warnings about divergent transitions."
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#model-summary-2",
+    "href": "slides/slide_deck/index.html#model-summary-2",
+    "title": "Bayesian Statistics",
+    "section": "Model summary",
+    "text": "Model summary\n\nsummary(icecream_mlm_1)\n\n Family: gaussian \n  Links: mu = identity; sigma = identity \nFormula: units ~ temp + (1 | location) \n   Data: icecream2 (Number of observations: 72) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nGroup-Level Effects: \n~location (Number of levels: 6) \n              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nsd(Intercept)   238.18     76.96   134.96   430.75 1.00      770     1261\n\nPopulation-Level Effects: \n          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nIntercept  -131.03     95.63  -323.54    54.29 1.00      918     1027\ntemp         25.45      2.13    21.25    29.56 1.00     2403     2150\n\nFamily Specific Parameters: \n      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nsigma    69.35      6.29    58.43    82.24 1.00     2057     2228\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#visualize-the-posterior",
+    "href": "slides/slide_deck/index.html#visualize-the-posterior",
+    "title": "Bayesian Statistics",
+    "section": "Visualize the posterior",
+    "text": "Visualize the posterior\n\nmcmc_plot(icecream_mlm_1, pars = \"r_location\", type = \"dens\")"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#visualize-mean-predictions-1",
+    "href": "slides/slide_deck/index.html#visualize-mean-predictions-1",
+    "title": "Bayesian Statistics",
+    "section": "Visualize mean predictions",
+    "text": "Visualize mean predictions\n\nconds <- data.frame(location = unique(icecream2$location))\nme <- conditional_effects(icecream_mlm_1, \"temp\", conditions = conds,\n                          re_formula = NULL, method = \"pp_expect\")\nplot(me, points = TRUE)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#visualize-data-predictions-1",
+    "href": "slides/slide_deck/index.html#visualize-data-predictions-1",
+    "title": "Bayesian Statistics",
+    "section": "Visualize data predictions",
+    "text": "Visualize data predictions\n\nconds <- data.frame(location = unique(icecream2$location))\nme <- conditional_effects(icecream_mlm_1, \"temp\", conditions = conds,\n                          re_formula = NULL, method = \"pp\")\nplot(me, points = TRUE)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#comparing-the-simple-and-multilevel-model",
+    "href": "slides/slide_deck/index.html#comparing-the-simple-and-multilevel-model",
+    "title": "Bayesian Statistics",
+    "section": "Comparing the simple and multilevel model",
+    "text": "Comparing the simple and multilevel model\n\nloo_lm = loo(icecream_lm)\nloo_mlm_1 = loo(icecream_mlm_1)\n\nloo_compare(loo_lm, loo_mlm_1)\n\n               elpd_diff se_diff\nicecream_mlm_1   0.0       0.0  \nicecream_lm    -79.4       6.7"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#exercise-3",
+    "href": "slides/slide_deck/index.html#exercise-3",
+    "title": "Bayesian Statistics",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\n\n\n\nMultilevel model for icecream sales\n\n\n\nDefine more Bayesian models, and save each model in a separate variable for later.\n\nicecream_mlm_2: Change the likelihood to a Poisson distribution\nicecream_mlm_3: Allow for varying slopes at each location but a fixed intercept\nicecream_mlm_4: Allow for varying slopes and varying intercept at each location\n\nCompare the models via LOO-CV\n\nYou need loo() and loo_compare()\n\nInterpret the results. What are your conclusions?"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#imdb-movies",
+    "href": "slides/slide_deck/index.html#imdb-movies",
+    "title": "Bayesian Statistics",
+    "section": "IMDB movies",
+    "text": "IMDB movies\n\nSource of idea, data, and visualization: Andrew Heiss (Link)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#group-means-as-regression-models",
+    "href": "slides/slide_deck/index.html#group-means-as-regression-models",
+    "title": "Bayesian Statistics",
+    "section": "Group means as regression models",
+    "text": "Group means as regression models\nFormulating a group mean comparison as a regression:\n\nlm_means = brm(\n  rating ~ 0 + genre,\n  data = movies,\n  file = \"models/movies_lm_means.rds\"\n)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#model-summary-rating-0-genre",
+    "href": "slides/slide_deck/index.html#model-summary-rating-0-genre",
+    "title": "Bayesian Statistics",
+    "section": "Model summary: rating ~ 0 + genre",
+    "text": "Model summary: rating ~ 0 + genre\n\nsummary(lm_means)\n\n Family: gaussian \n  Links: mu = identity; sigma = identity \nFormula: rating ~ 0 + genre \n   Data: movies (Number of observations: 400) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nPopulation-Level Effects: \n            Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\ngenreAction     5.07      0.10     4.87     5.27 1.00     4402     2971\ngenreComedy     5.86      0.11     5.65     6.07 1.00     4157     3017\n\nFamily Specific Parameters: \n      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\nsigma     1.48      0.05     1.38     1.58 1.00     3573     2900\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#modeling-distributional-parameters",
+    "href": "slides/slide_deck/index.html#modeling-distributional-parameters",
+    "title": "Bayesian Statistics",
+    "section": "Modeling distributional parameters",
+    "text": "Modeling distributional parameters\nWe can also estimate the standard deviation \\(\\sigma\\) of each group in addition to the mean:\n\nlm_means_sd = brm(\n  bf(rating ~ 0 + genre, sigma ~ 0 + genre),\n  data = movies,\n  file = \"models/movies_lm_means_sd.rds\"\n)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#model-summary-rating-0-genre-sigma-0-genre",
+    "href": "slides/slide_deck/index.html#model-summary-rating-0-genre-sigma-0-genre",
+    "title": "Bayesian Statistics",
+    "section": "Model summary: rating ~ 0 + genre, sigma ~ 0 + genre",
+    "text": "Model summary: rating ~ 0 + genre, sigma ~ 0 + genre\n\nsummary(lm_means_sd)\n\n Family: gaussian \n  Links: mu = identity; sigma = log \nFormula: rating ~ 0 + genre \n         sigma ~ 0 + genre\n   Data: movies (Number of observations: 400) \n  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;\n         total post-warmup draws = 4000\n\nPopulation-Level Effects: \n                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS\ngenreAction           5.07      0.11     4.85     5.28 1.00     4444     3211\ngenreComedy           5.86      0.10     5.67     6.04 1.00     4449     3256\nsigma_genreAction     0.45      0.05     0.36     0.55 1.00     4422     2841\nsigma_genreComedy     0.33      0.05     0.23     0.43 1.00     4300     3140\n\nDraws were sampled using sampling(NUTS). For each parameter, Bulk_ESS\nand Tail_ESS are effective sample size measures, and Rhat is the potential\nscale reduction factor on split chains (at convergence, Rhat = 1)."
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#retrieving-the-standard-deviations",
+    "href": "slides/slide_deck/index.html#retrieving-the-standard-deviations",
+    "title": "Bayesian Statistics",
+    "section": "Retrieving the standard deviations",
+    "text": "Retrieving the standard deviations\nFor mathy reasons (Link), the sigma draws are on a log scale, so we need to exponentiate them back to the data scale:\n\npost_samples = posterior_samples(lm_means_sd) %>% \n  mutate_at(vars(contains(\"sigma\")), funs(exp))"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#computing-custom-posterior-quantities",
+    "href": "slides/slide_deck/index.html#computing-custom-posterior-quantities",
+    "title": "Bayesian Statistics",
+    "section": "Computing custom posterior quantities",
+    "text": "Computing custom posterior quantities\nWe can treat the posterior samples like a data frame and compute arbitrary quantities for each draw.\n\npost_samples_diff = post_samples %>% \n  mutate(mean_diff = b_genreAction - b_genreComedy)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#region-of-practical-equivalence-rope",
+    "href": "slides/slide_deck/index.html#region-of-practical-equivalence-rope",
+    "title": "Bayesian Statistics",
+    "section": "Region of practical equivalence (ROPE)",
+    "text": "Region of practical equivalence (ROPE)\nDefine a region that is practically equivalent to a point value.\n\n\n\n\n\n\n\n\nExample: Coin flip\n\n\nCoin flip with Binomial parameter \\(\\theta\\): ROPE = \\([0.45, 0.55]\\) for a fair coin\n\n\n\n\n\n\n\n\n\n\n\n\n\nOther Examples\n\nCorrelation coefficient \\(r\\): \\([-0.10, 0.10]\\)\nOdd’s ratio \\(OR\\): \\([0.95, 1.05]\\)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#exercise-4",
+    "href": "slides/slide_deck/index.html#exercise-4",
+    "title": "Bayesian Statistics",
+    "section": "Exercise",
+    "text": "Exercise\n\n\n\n\n\n\nIMDB movie ratings: Effect size and ROPE\n\n\n\nCompute the posterior distribution of Cohen’s \\(d\\) for the movie genre comparison\nDefine a sensible region of practical equivalence (ROPE) for Cohen’s \\(d\\)\nChoose a sensible credible interval for reporting the posterior distribution of Cohen’s \\(d\\)\nVisualize the ROPE and the posterior credible interval of \\(d\\)\nInterpret the result\nOptional: Change the model family to Student-t.\n\nFind out which additional parameter this will model, add a prior for it.\nShould we model the data with a Student-\\(t\\) family?\n\n\n\n\n\nUse the definition \\(d = \\dfrac{\\mu_1 - \\mu_2}{\\frac{1}{2}\\sqrt{\\sigma_1^2 + \\sigma_2^2}}\\)\n\n\n\n\n\n\nAttention: Variance \\(\\leftrightarrow\\) SD\n\n\nRemember to square the sigma draws for the computation of Cohen’s \\(d\\)!"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#using-bayesian-inference-for-your-own-projects",
+    "href": "slides/slide_deck/index.html#using-bayesian-inference-for-your-own-projects",
+    "title": "Bayesian Statistics",
+    "section": "Using Bayesian inference for your own projects",
+    "text": "Using Bayesian inference for your own projects\n\n\n\n\n\n\n3 questions about your own research projects\n\n\n\nWhich concrete statistical models am I currently using?\nHow might these models benefit from Bayesian inference?\nWhat knowledge am I missing to use a Bayesian approach?\n\n\n\n\nWork through these guiding questions. Let your answers be as specific as possible. If applicable, you can also sketch out concrete next steps or some equations.\n\n\n Think (5min)\n Pair (15min)\n Share"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#reading-tips",
+    "href": "slides/slide_deck/index.html#reading-tips",
+    "title": "Bayesian Statistics",
+    "section": "Reading tips",
+    "text": "Reading tips\n\nRichard McElreath (2020). Statistical Rethinking: A Bayesian course with examples in R and Stan. CRC Press.\n\nThe best book to start with Bayesian inference. Highly recommended!\nGreat free lectures on YouTube (Link)\n\nAndrew Gelman, John Carlin, Has Stern, David Dunson, Aki Vehtari, & Donald Rubin (2021). Bayesian Data Analysis. Volume 3.\n\nMuch more technical, probably more of a reference\nAccompanying online course by Aki Vehtari (Link)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#contact",
+    "href": "slides/slide_deck/index.html#contact",
+    "title": "Bayesian Statistics",
+    "section": "Contact",
+    "text": "Contact\n\n\nMarvin Schmitt\n @MarvinSchmittML\n @MarvinSchmitt@mastodon.online\n www.marvinschmitt.com\n mail.marvinschmitt@gmail.com\n\n\n\n\nCredits\nSpecial thanks to Paul Bürkner for providing me with workshop material on Bayesian modeling with brms. The brms introduction is heavily inspired by Paul’s material.\n\n\n\nBayesian statistics workshop | Marvin Schmitt | marvinschmitt.github.io/bayes-workshop"
+  },
+  {
+    "objectID": "slides/index.html",
+    "href": "slides/index.html",
+    "title": "Slides",
+    "section": "",
+    "text": "This website contains the slides of the workshop for your reference. You can check back later to go through the material again.\n\n\n\nIf you prefer to view the presentation in a standalone browser tab, you can do that here."
+  },
+  {
+    "objectID": "exercises/exercise_5.html",
+    "href": "exercises/exercise_5.html",
+    "title": "Exercise 5",
+    "section": "",
+    "text": "Download the data set movies.csv and read it into your R environment:\nData set download"
+  },
+  {
+    "objectID": "exercises/exercise_5.html#imdb-movie-ratings-effect-size-and-rope",
+    "href": "exercises/exercise_5.html#imdb-movie-ratings-effect-size-and-rope",
+    "title": "Exercise 5",
+    "section": "IMDB movie ratings: Effect size and ROPE",
+    "text": "IMDB movie ratings: Effect size and ROPE\n\nCompute the posterior distribution of Cohen’s \\(d\\) for the movie genre comparison\nDefine a sensible region of practical equivalence (ROPE) for Cohen’s \\(d\\)\nChoose a sensible credible interval for reporting the posterior distribution of Cohen’s \\(d\\)\nVisualize the ROPE and the posterior credible interval of \\(d\\)\nInterpret the result\nOptional: Change the model family to Student-t.\n\nFind out which additional parameter this will model, add a prior for it.\nShould we model the data with a Student-\\(t\\) family?"
+  },
+  {
+    "objectID": "exercises/exercise_5.html#hints",
+    "href": "exercises/exercise_5.html#hints",
+    "title": "Exercise 5",
+    "section": "Hints",
+    "text": "Hints\nUse the definition \\[\nd = \\dfrac{\\mu_1 - \\mu_2}{\\frac{1}{2}\\sqrt{\\sigma_1^2 + \\sigma_2^2}}\n\\]\n\n\n\n\n\n\nAttention: Variance \\(\\leftrightarrow\\) SD\n\n\n\nRemember to square the sigma draws for the computation of Cohen’s \\(d\\)!\n\n\n\nModeling means and standard deviations\n\nlm_means_sd = brm(\n  bf(rating ~ 0 + genre, sigma ~ 0 + genre),\n  data = movies,\n  file = \"models/movies_lm_means_sd.rds\"\n)\n\n\n\nComputing arbitrary posterior quantities\n\npost_samples = posterior_samples(lm_means_sd) %>% \n  mutate_at(vars(contains(\"sigma\")), funs(exp))\n\npost_samples_diff = post_samples %>% \n  mutate(mean_diff = b_genreAction - b_genreComedy)\n\n\n\nAccessing the standard deviation estimates\n\npost_samples$b_sigma_genreAction\npost_samples$b_sigma_genreComedy"
+  },
+  {
+    "objectID": "exercises/exercise_4.html",
+    "href": "exercises/exercise_4.html",
+    "title": "Exercise 4",
+    "section": "",
+    "text": "Download the data set icecream2.csv and read it into your R environment:\nData set download"
+  },
+  {
+    "objectID": "exercises/exercise_4.html#multilevel-model-for-icecream-sales",
+    "href": "exercises/exercise_4.html#multilevel-model-for-icecream-sales",
+    "title": "Exercise 4",
+    "section": "Multilevel model for icecream sales",
+    "text": "Multilevel model for icecream sales\n\nDefine more Bayesian models, and save each model in a separate variable for later.\n\nicecream_mlm_2: Change the likelihood to a Poisson distribution\nicecream_mlm_3: Allow for varying slopes at each location but a fixed intercept\nicecream_mlm_4: Allow for varying slopes and varying intercept at each location\n\nCompare the models via LOO-CV\n\nYou need loo() and loo_compare()\n\nInterpret the results. What are your conclusions?"
+  },
+  {
+    "objectID": "exercises/exercise_4.html#hints",
+    "href": "exercises/exercise_4.html#hints",
+    "title": "Exercise 4",
+    "section": "Hints",
+    "text": "Hints"
+  },
+  {
+    "objectID": "exercises/exercise_3.html",
+    "href": "exercises/exercise_3.html",
+    "title": "Exercise 3",
+    "section": "",
+    "text": "Download the data set icecream.csv and read it into your R environment:\nData set download"
+  },
+  {
+    "objectID": "exercises/exercise_3.html#comparing-ice-cream-models",
+    "href": "exercises/exercise_3.html#comparing-ice-cream-models",
+    "title": "Exercise 3",
+    "section": "Comparing ice cream models",
+    "text": "Comparing ice cream models\n\nPlot the posterior predictive distribution for the icecream model\nDefine two more ice cream models, for example with …\n\n… another prior distribution\n… another likelihood\n\nCompare the models via LOO-CV\nInterpret the results. What are your conclusions?"
+  },
+  {
+    "objectID": "exercises/exercise_3.html#hints",
+    "href": "exercises/exercise_3.html#hints",
+    "title": "Exercise 3",
+    "section": "Hints",
+    "text": "Hints\n\nLOO-CV\n\nloo_1 = loo(lm_1)\nloo_2 = loo(lm_2)\n\nloo_compare(loo_1, loo_2)"
+  },
+  {
+    "objectID": "exercises/exercise_2.html",
+    "href": "exercises/exercise_2.html",
+    "title": "Exercise 2",
+    "section": "",
+    "text": "Download the data set icecream.csv and read it into your R environment:\nData set download"
+  },
+  {
+    "objectID": "exercises/exercise_2.html#modeling-icecream-sales-at-different-temperatures",
+    "href": "exercises/exercise_2.html#modeling-icecream-sales-at-different-temperatures",
+    "title": "Exercise 2",
+    "section": "Modeling icecream sales at different temperatures",
+    "text": "Modeling icecream sales at different temperatures\n\nModel the icecream.csv data with a Bayesian regression model\nChoose a likelihood function\nDefine a prior distribution\nVisualize the posterior draws as a density plot\nVisualize the modeled expectation \\(\\mu\\) (i.e., regression line with uncertainty)"
+  },
+  {
+    "objectID": "exercises/exercise_2.html#hints",
+    "href": "exercises/exercise_2.html#hints",
+    "title": "Exercise 2",
+    "section": "Hints",
+    "text": "Hints"
+  },
+  {
+    "objectID": "exercises/exercise_1.html",
+    "href": "exercises/exercise_1.html",
+    "title": "Exercise 1",
+    "section": "",
+    "text": "This exercise needs no data. You can flip a coin to create your own data set."
+  },
+  {
+    "objectID": "exercises/exercise_1.html#the-bayesian-coin-flip",
+    "href": "exercises/exercise_1.html#the-bayesian-coin-flip",
+    "title": "Exercise 1",
+    "section": "The Bayesian coin flip",
+    "text": "The Bayesian coin flip\nImplement Bayesian updating for a coin flip experiment that tries to find the true probability \\(\\theta\\) of heads.\n\nWhat is a suitable likelihood \\(p(y\\,|\\,\\theta)\\)?\nWhat is the parameter \\(\\theta\\) of that likelihood?\nHow can you encode your prior belief about \\(\\theta\\) in a distribution?\n\nPossible values of \\(\\theta\\)?\nAreas of high mass?\nUse R to sample and visualize some distributions.\n\nHow does the result change if you increase the number of observations N?\nOptional:\n\nCompute the Maximum Likelihood Estimate (MLE)\nCompare the MLE with mode of the posterior distribution (aka. MAP)\nWhen do MLE and MAP differ?\nCan you make MLE and MAP equal?"
+  },
+  {
+    "objectID": "exercises/exercise_1.html#hints",
+    "href": "exercises/exercise_1.html#hints",
+    "title": "Exercise 1",
+    "section": "Hints",
+    "text": "Hints\n\nBayesian update from the example\n\nN = 20\ny = 14\n\ntheta = seq(0, 1, by=0.01)\nprior = dbeta(theta, 3, 2)\nlikelihood = dbinom(y, N, theta)\njoint = prior * likelihood\n\nposterior = joint / sum(joint)\n\nprint(cbind(theta, prior, posterior)[1:10, ])\n\n      theta    prior    posterior\n [1,]  0.00 0.000000 0.000000e+00\n [2,]  0.01 0.001188 5.484056e-28\n [3,]  0.02 0.004704 3.347480e-23\n [4,]  0.03 0.010476 2.046434e-20\n [5,]  0.04 0.018432 1.898952e-18\n [6,]  0.05 0.028500 6.269615e-17\n [7,]  0.06 0.040608 1.076392e-15\n [8,]  0.07 0.054684 1.176535e-14\n [9,]  0.08 0.070656 9.238684e-14\n[10,]  0.09 0.088452 5.634111e-13\n\n\n\n\nVisualizing prior and posterior\n\nprior = prior / sum(prior)\nplot(theta, posterior, type=\"l\", col=\"orange\", lwd=5, xlim=c(0,1), xlab=\"theta\", ylab=\"\", axes=FALSE)\nlines(theta, prior, col=\"darkblue\", lwd=5)\nlegend(\"topleft\", legend=c(\"Prior\", \"Posterior\"),\n       col=c(\"darkblue\", \"orange\"), lty=1, cex=1.7, lwd=10)\naxis(1, pos=0)"
+  },
+  {
+    "objectID": "exercises/index.html",
+    "href": "exercises/index.html",
+    "title": "Bayesian Statistics Workshop",
+    "section": "",
+    "text": "You find links to the notebooks (web preview) and .qmd source files of all exercises here.\n\n\n\n#\nTitle\nLink to notebook\nDownload\n\n\n\n\n1\nBayesian coin flip\nLink\n Download\n\n\n2\nModeling icecream sales at different temperatures\nLink\n Download\n\n\n3\nComparing ice cream models\nLink\n Download\n\n\n4\nMultilevel model for icecream sales\nLink\n Download\n\n\n5\nIMDB movie ratings: Effect size and ROPE\nLink\n Download"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#example-eye-color-fine-grained-theta",
+    "href": "slides/slide_deck/index.html#example-eye-color-fine-grained-theta",
+    "title": "Bayesian Statistics",
+    "section": "Example: Eye color, fine-grained \\(\\theta\\)",
+    "text": "Example: Eye color, fine-grained \\(\\theta\\)\n\nN = 20\ny = 11\n\ntheta = seq(0, 1, by=0.01)\nprior = dbeta(theta, 3, 2)\nlikelihood = dbinom(y, N, theta)\njoint = prior * likelihood\n\nposterior = joint / sum(joint)"
+  },
+  {
+    "objectID": "slides/slide_deck/index.html#joint-distribution",
+    "href": "slides/slide_deck/index.html#joint-distribution",
+    "title": "Bayesian Statistics",
+    "section": "Joint distribution",
+    "text": "Joint distribution\nThe joint distribution \\(p(y, \\theta)\\) can be visualized for 1-dimensional data \\(y\\) and parameters \\(\\theta\\):"
   }
 ]

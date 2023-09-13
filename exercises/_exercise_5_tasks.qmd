@@ -1,0 +1,10 @@
+## IMDB movie ratings: Effect size and ROPE
+
+#. Compute the posterior distribution of Cohen's $d$ for the movie genre comparison
+#. Define a sensible region of practical equivalence (ROPE) for Cohen's $d$
+#. Choose a sensible credible interval for reporting the posterior distribution of Cohen's $d$
+#. Visualize the ROPE and the posterior credible interval of $d$
+#. Interpret the result
+#. **Optional:** Change the model family to *Student-t*. 
+    * Find out which additional parameter this will model, add a prior for it.
+    * Should we model the data with a Student-$t$ family?
