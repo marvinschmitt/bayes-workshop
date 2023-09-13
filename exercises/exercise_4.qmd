@@ -13,3 +13,19 @@ Download the data set `icecream2.csv` and read it into your `R` environment:
 
 ## Hints
 
+### Multilevel model in `brms` (Intercept-only)
+
+```{r}
+#| eval: False
+
+icecream_mlm_1 = brm(
+  units ~ temp + (1 | location),
+  data = icecream2,
+  control = list(adapt_delta = 0.99)
+)
+```
+
+### Individual slope per location
+
+- How is the location encoded in the `icecream_mlm_1` formula?
+- Who would get an individual slope in the *individual slope* model?

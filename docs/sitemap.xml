@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://marvinschmitt.github.io/bayes-workshop/setup/index.html</loc>
-    <lastmod>2023-09-13T14:39:46.470Z</lastmod>
-  </url>
-  <url>
-    <loc>https://marvinschmitt.github.io/bayes-workshop/index.html</loc>
-    <lastmod>2023-09-13T14:39:46.815Z</lastmod>
-  </url>
-  <url>
-    <loc>https://marvinschmitt.github.io/bayes-workshop/slides/slide_deck/index.html</loc>
-    <lastmod>2023-09-13T15:19:57.343Z</lastmod>
-  </url>
-  <url>
-    <loc>https://marvinschmitt.github.io/bayes-workshop/slides/index.html</loc>
-    <lastmod>2023-09-13T14:39:48.228Z</lastmod>
-  </url>
-  <url>
-    <loc>https://marvinschmitt.github.io/bayes-workshop/exercises/exercise_5.html</loc>
-    <lastmod>2023-09-13T14:39:48.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://marvinschmitt.github.io/bayes-workshop/exercises/exercise_4.html</loc>
-    <lastmod>2023-09-13T14:39:49.077Z</lastmod>
-  </url>
-  <url>
-    <loc>https://marvinschmitt.github.io/bayes-workshop/exercises/exercise_3.html</loc>
-    <lastmod>2023-09-13T14:39:49.583Z</lastmod>
+    <loc>https://marvinschmitt.github.io/bayes-workshop/exercises/index.html</loc>
+    <lastmod>2023-09-13T21:48:27.114Z</lastmod>
   </url>
   <url>
     <loc>https://marvinschmitt.github.io/bayes-workshop/exercises/exercise_2.html</loc>
-    <lastmod>2023-09-13T14:39:49.992Z</lastmod>
+    <lastmod>2023-09-13T21:48:26.260Z</lastmod>
+  </url>
+  <url>
+    <loc>https://marvinschmitt.github.io/bayes-workshop/exercises/exercise_4.html</loc>
+    <lastmod>2023-09-13T21:48:25.314Z</lastmod>
+  </url>
+  <url>
+    <loc>https://marvinschmitt.github.io/bayes-workshop/slides/index.html</loc>
+    <lastmod>2023-09-13T21:48:24.246Z</lastmod>
+  </url>
+  <url>
+    <loc>https://marvinschmitt.github.io/bayes-workshop/index.html</loc>
+    <lastmod>2023-09-13T21:48:22.300Z</lastmod>
+  </url>
+  <url>
+    <loc>https://marvinschmitt.github.io/bayes-workshop/setup/index.html</loc>
+    <lastmod>2023-09-13T21:48:21.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://marvinschmitt.github.io/bayes-workshop/slides/slide_deck/index.html</loc>
+    <lastmod>2023-09-13T21:52:34.016Z</lastmod>
+  </url>
+  <url>
+    <loc>https://marvinschmitt.github.io/bayes-workshop/exercises/exercise_5.html</loc>
+    <lastmod>2023-09-13T21:48:24.800Z</lastmod>
+  </url>
+  <url>
+    <loc>https://marvinschmitt.github.io/bayes-workshop/exercises/exercise_3.html</loc>
+    <lastmod>2023-09-13T21:48:25.797Z</lastmod>
   </url>
   <url>
     <loc>https://marvinschmitt.github.io/bayes-workshop/exercises/exercise_1.html</loc>
-    <lastmod>2023-09-13T14:39:50.488Z</lastmod>
-  </url>
-  <url>
-    <loc>https://marvinschmitt.github.io/bayes-workshop/exercises/index.html</loc>
-    <lastmod>2023-09-13T14:39:50.784Z</lastmod>
+    <lastmod>2023-09-13T21:48:26.795Z</lastmod>
   </url>
 </urlset>

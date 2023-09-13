@@ -11,3 +11,47 @@ Download the data set `icecream.csv` and read it into your `R` environment:
 {{< include /exercises/_exercise_2_tasks.qmd >}}
 
 ## Hints
+
+### Defining priors in `brms`
+
+```{r}
+#| eval: False
+
+priors = prior(normal(0, 100), class = "Intercept") +
+         prior(normal(0, 50), class = "b", coef = "x") +
+         prior(cauchy(0, 50), class = "sigma")
+```
+
+
+### Bayesian linear regression
+
+```{r}
+#| eval: False
+
+lm = brm(
+  formula = y ~ x,
+  family = gaussian(),
+  prior = priors,
+  data = df,
+  iter = 4000,
+  chains = 4
+)
+```
+
+
+### Visualization: posterior
+
+```{r}
+#| eval: False
+
+mcmc_plot(lm, type = "dens")
+```
+
+
+```{r}
+#| eval: False
+
+ce <- conditional_effects(lm_base, method = "pp_expect")
+plot(ce, points = TRUE)
+```
+

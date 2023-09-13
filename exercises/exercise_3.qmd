@@ -13,6 +13,15 @@ Download the data set `icecream.csv` and read it into your `R` environment:
 
 ## Hints
 
+### Posterior predictive plot
+
+```{r}
+#| eval: False
+
+ce <- conditional_effects(lm_prior, method = "pp")
+plot(ce, points = TRUE)
+```
+
 
 ### LOO-CV
 
