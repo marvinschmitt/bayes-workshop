@@ -774,7 +774,8 @@ eda_boxplot <- ggplot(movies, aes(x = genre, y = rating, fill = genre)) +
   geom_boxplot() +
   scale_fill_manual(values = c("#0288b7", "#a90010"), guide = FALSE) + 
   scale_y_continuous(breaks = seq(1, 10, 1)) +
-  labs(x = NULL, y = "Rating") 
+  labs(x = NULL, y = "Rating") +
+  theme_default(base_size=10)
 
 eda_histogram <- ggplot(movies, aes(x = rating, fill = genre)) +
   geom_histogram(binwidth = 1, color = "white") +
@@ -782,14 +783,16 @@ eda_histogram <- ggplot(movies, aes(x = rating, fill = genre)) +
   scale_x_continuous(breaks = seq(1, 10, 1)) +
   labs(y = "Count", x = "Rating") +
   facet_wrap(~ genre, nrow = 2) +
-  theme(panel.grid.major.x = element_blank())
+  theme(panel.grid.major.x = element_blank()) +
+  theme_default(base_size=10)
 
 eda_ridges <- ggplot(movies, aes(x = rating, y = fct_rev(genre), fill = genre)) +
   stat_density_ridges(quantile_lines = TRUE, quantiles = 2, scale = 3, color = "white") + 
   scale_fill_manual(values = c("#0288b7", "#a90010"), guide = FALSE) + 
   scale_x_continuous(breaks = seq(0, 10, 2)) +
   labs(x = "Rating", y = NULL,
-       subtitle = "White line shows median rating")
+       subtitle = "White line shows median rating") +
+  theme_default(base_size=10)
 
 (eda_boxplot | eda_histogram) / 
     eda_ridges + 
@@ -797,7 +800,7 @@ eda_ridges <- ggplot(movies, aes(x = rating, y = fct_rev(genre), fill = genre)) 
                   subtitle = "Sample of 400 movies from IMDB",
                   theme = theme(text = element_text(),
                                 plot.title = element_text(face = "bold",
-                                                          size = rel(1.5))))
+                                                          size = rel(1.1))))
 ```
 
 Source of idea, data, and visualization: [Andrew Heiss (Link)](https://github.com/andrewheiss/diff-means-half-dozen-ways)
