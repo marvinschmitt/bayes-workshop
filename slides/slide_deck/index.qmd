@@ -260,7 +260,7 @@ N = 20
 y = 11
 
 theta = seq(0, 1, by=0.01)
-prior = dbeta(theta, 3, 2)
+prior = dbeta(theta, 1, 1)
 likelihood = dbinom(y, N, theta)
 joint = prior * likelihood
 

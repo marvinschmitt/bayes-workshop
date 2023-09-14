@@ -207,7 +207,7 @@
     "href": "slides/slide_deck/index.html#example-eye-color-fine-grained-theta",
     "title": "Bayesian Statistics",
     "section": "Example: Eye color, fine-grained \\(\\theta\\)",
-    "text": "Example: Eye color, fine-grained \\(\\theta\\)\n\nN = 20\ny = 11\n\ntheta = seq(0, 1, by=0.01)\nprior = dbeta(theta, 3, 2)\nlikelihood = dbinom(y, N, theta)\njoint = prior * likelihood\n\nposterior = joint / sum(joint)"
+    "text": "Example: Eye color, fine-grained \\(\\theta\\)\n\nN = 20\ny = 11\n\ntheta = seq(0, 1, by=0.01)\nprior = dbeta(theta, 1, 1)\nlikelihood = dbinom(y, N, theta)\njoint = prior * likelihood\n\nposterior = joint / sum(joint)"
   },
   {
     "objectID": "slides/slide_deck/index.html#exercise",
