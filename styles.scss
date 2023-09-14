@@ -139,28 +139,8 @@ iframe .reveal-demo {
   }
 }
 
-.reveal div.sourceCode {
-    border: none;
-    border-radius: 5px;
-    margin: 40px auto 40px auto !important;
-    box-shadow: 0 15px 25px rgb(0 0 0 / 40%);
-    width: fit-content;
-    font-size: 1.3em;
-    padding: 10px;
-}
-
-.reveal div.sourceCode pre code {
-    padding: 25px;
-}
 
 code span.er {
     color: #ebcb8b;
     text-decoration: none;
   }
-
-.reveal pre code {
-  background: $gray-800;
-  font-size: 1.2em;
-  padding: 0.5em;
-  line-height: 1.2em;
-}
