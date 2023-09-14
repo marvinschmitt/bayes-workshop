@@ -210,6 +210,13 @@
     "text": "Example: Eye color, fine-grained \\(\\theta\\)\n\nN = 20\ny = 11\n\ntheta = seq(0, 1, by=0.01)\nprior = dbeta(theta, 1, 1)\nlikelihood = dbinom(y, N, theta)\njoint = prior * likelihood\n\nposterior = joint / sum(joint)"
   },
   {
+    "objectID": "slides/slide_deck/index.html#joint-distribution",
+    "href": "slides/slide_deck/index.html#joint-distribution",
+    "title": "Bayesian Statistics",
+    "section": "Joint distribution",
+    "text": "Joint distribution\nThe joint distribution \\(p(y, \\theta)\\) can be visualized for 1-dimensional data \\(y\\) and parameters \\(\\theta\\):"
+  },
+  {
     "objectID": "slides/slide_deck/index.html#exercise",
     "href": "slides/slide_deck/index.html#exercise",
     "title": "Bayesian Statistics",
@@ -522,7 +529,7 @@
     "href": "slides/slide_deck/index.html#exercise-4",
     "title": "Bayesian Statistics",
     "section": "Exercise",
-    "text": "Exercise\n\n\n\n\n\n\nIMDB movie ratings: Effect size and ROPE\n\n\n\nCompute the posterior distribution of Cohen’s \\(d\\) for the movie genre comparison\nDefine a sensible region of practical equivalence (ROPE) for Cohen’s \\(d\\)\nChoose a sensible credible interval for reporting the posterior distribution of Cohen’s \\(d\\)\nVisualize the ROPE and the posterior credible interval of \\(d\\)\nInterpret the result\nOptional: Change the model family to Student-t.\n\nFind out which additional parameter this will model, add a prior for it.\nShould we model the data with a Student-\\(t\\) family?\n\n\n\n\n\nUse the definition \\(d = \\dfrac{\\mu_1 - \\mu_2}{\\frac{1}{2}\\sqrt{\\sigma_1^2 + \\sigma_2^2}}\\)\n\n\n\n\n\n\nAttention: Variance \\(\\leftrightarrow\\) SD\n\n\nRemember to square the sigma draws for the computation of Cohen’s \\(d\\)!"
+    "text": "Exercise\n\n\n\n\n\n\nIMDB movie ratings: Effect size and ROPE\n\n\n\nCompute the posterior distribution of Cohen’s \\(d\\) for the movie genre comparison\nDefine a sensible region of practical equivalence (ROPE) for Cohen’s \\(d\\)\nChoose a sensible credible interval for reporting the posterior distribution of Cohen’s \\(d\\)\nVisualize the ROPE and the posterior credible interval of \\(d\\)\nInterpret the result\nOptional: Change the model family to Student-t.\n\nFind out which additional parameter this will model, add a prior for it.\nShould we model the data with a Student-\\(t\\) family?\n\n\n\n\n\nUse the definition \\(d = \\dfrac{\\mu_1 - \\mu_2}{\\sqrt{\\frac{1}{2}(\\sigma_1^2 + \\sigma_2^2)}}\\)\n\n\n\n\n\n\nAttention: Variance \\(\\leftrightarrow\\) SD\n\n\nRemember to square the sigma draws for the computation of Cohen’s \\(d\\)!"
   },
   {
     "objectID": "slides/slide_deck/index.html#using-bayesian-inference-for-your-own-projects",
@@ -571,7 +578,7 @@
     "href": "exercises/exercise_5.html#hints",
     "title": "Exercise 5",
     "section": "Hints",
-    "text": "Hints\nUse the definition \\[\nd = \\dfrac{\\mu_1 - \\mu_2}{\\frac{1}{2}\\sqrt{\\sigma_1^2 + \\sigma_2^2}}\n\\]\n\n\n\n\n\n\nAttention: Variance \\(\\leftrightarrow\\) SD\n\n\n\nRemember to square the sigma draws for the computation of Cohen’s \\(d\\)!\n\n\n\nModeling means and standard deviations\n\nlm_means_sd = brm(\n  bf(rating ~ 0 + genre, sigma ~ 0 + genre),\n  data = movies,\n  file = \"models/movies_lm_means_sd.rds\"\n)\n\n\n\nComputing arbitrary posterior quantities\n\npost_samples = posterior_samples(lm_means_sd) %&gt;% \n  mutate_at(vars(contains(\"sigma\")), funs(exp))\n\npost_samples_diff = post_samples %&gt;% \n  mutate(mean_diff = b_genreAction - b_genreComedy)\n\n\n\nAccessing the standard deviation estimates\n\npost_samples$b_sigma_genreAction\npost_samples$b_sigma_genreComedy"
+    "text": "Hints\nUse the definition \\[\nd = \\dfrac{\\mu_1 - \\mu_2}{\\sqrt{\\frac{1}{2}(\\sigma_1^2 + \\sigma_2^2)}}\n\\]\n\n\n\n\n\n\nAttention: Variance \\(\\leftrightarrow\\) SD\n\n\n\nRemember to square the sigma draws for the computation of Cohen’s \\(d\\)!\n\n\n\nModeling means and standard deviations\n\nlm_means_sd = brm(\n  bf(rating ~ 0 + genre, sigma ~ 0 + genre),\n  data = movies,\n  file = \"models/movies_lm_means_sd.rds\"\n)\n\n\n\nComputing arbitrary posterior quantities\n\npost_samples = posterior_samples(lm_means_sd) %&gt;% \n  mutate_at(vars(contains(\"sigma\")), funs(exp))\n\npost_samples_diff = post_samples %&gt;% \n  mutate(mean_diff = b_genreAction - b_genreComedy)\n\n\n\nAccessing the standard deviation estimates\n\npost_samples$b_sigma_genreAction\npost_samples$b_sigma_genreComedy"
   },
   {
     "objectID": "exercises/exercise_3.html",

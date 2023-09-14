@@ -278,7 +278,7 @@ axis(1, pos=0)
 ```
 
 
-<!--
+
 ## Joint distribution
 
 The joint distribution $p(y, \theta)$ can be visualized for 1-dimensional data $y$ and parameters $\theta$:
@@ -322,7 +322,7 @@ plot_ly(x=y, y=theta, z=~M, type="surface", hoverinfo="none") %>%
 
 ```
 
--->
+
 
 
 ## Exercise
@@ -1012,7 +1012,7 @@ mtext("Posterior distribution", side = 3, line = 1)
 :::
 
 
-Use the definition $d = \dfrac{\mu_1 - \mu_2}{\frac{1}{2}\sqrt{\sigma_1^2 + \sigma_2^2}}$
+Use the definition $d = \dfrac{\mu_1 - \mu_2}{\sqrt{\frac{1}{2}(\sigma_1^2 + \sigma_2^2)}}$
 
 :::{.callout-warning}
 ## Attention: Variance $\leftrightarrow$ SD

@@ -15,7 +15,7 @@ Download the data set `movies.csv` and read it into your `R` environment:
 
 Use the definition 
 $$
-d = \dfrac{\mu_1 - \mu_2}{\frac{1}{2}\sqrt{\sigma_1^2 + \sigma_2^2}}
+d = \dfrac{\mu_1 - \mu_2}{\sqrt{\frac{1}{2}(\sigma_1^2 + \sigma_2^2)}}
 $$
 
 :::{.callout-warning}
