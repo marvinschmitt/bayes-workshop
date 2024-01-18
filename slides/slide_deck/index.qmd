@@ -21,7 +21,7 @@ format:
     height: 900
     echo: true
   
-highlight-style: "dracula"
+# highlight-style: "dracula"
 ---
 
 # Introduction
