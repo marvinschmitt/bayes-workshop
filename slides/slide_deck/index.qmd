@@ -285,6 +285,7 @@ The joint distribution $p(y, \theta)$ can be visualized for 1-dimensional data $
 
 ```{r}
 #| echo: False
+#| fig-height: 400
 
 N = 20
 
